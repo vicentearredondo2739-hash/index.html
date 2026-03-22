@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS Prep — English Mastery</title>
+<style>
+/* ===== RESET & BASE ===== */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#ffffff;--bg2:#f7f7f5;--bg3:#f0efe9;
+  --text:#1a1a18;--text2:#6b6b67;--text3:#9e9e99;
+  --border:#e2e2dc;--border2:#c8c8c0;
+  --blue:#185FA5;--blue-bg:#E6F1FB;--blue-text:#0C447C;
+  --green:#1D9E75;--green-bg:#E1F5EE;--green-text:#085041;
+  --red:#E24B4A;--red-bg:#FCEBEB;--red-text:#791F1F;
+  --amber:#BA7517;--amber-bg:#FAEEDA;--amber-text:#633806;
+  --purple:#534AB7;--purple-bg:#EEEDFE;--purple-text:#3C3489;
+  --teal:#0F6E56;--teal-bg:#E1F5EE;--teal-text:#085041;
+  --radius:8px;--radius-lg:12px;--radius-xl:16px;
+  --font:'Segoe UI',system-ui,-apple-system,sans-serif;
+  --font-mono:'Fira Mono','Consolas',monospace;
+}
+body{font-family:var(--font);background:var(--bg3);color:var(--text);min-height:100vh;font-size:15px;line-height:1.6}
+
+/* ===== LAYOUT ===== */
+.app-shell{display:flex;min-height:100vh}
+.sidebar{width:220px;background:var(--bg);border-right:0.5px solid var(--border);padding:1.5rem 0;position:sticky;top:0;height:100vh;overflow-y:auto;flex-shrink:0}
+.main{flex:1;padding:2rem;max-width:900px}
+@media(max-width:700px){.sidebar{display:none}.main{padding:1rem}}
+
+/* ===== SIDEBAR ===== */
+.logo{padding:0 1.25rem 1.5rem;border-bottom:0.5px solid var(--border);margin-bottom:1rem}
+.logo h2{font-size:16px;font-weight:600;letter-spacing:-0.3px}
+.logo p{font-size:12px;color:var(--text3);margin-top:2px}
+.nav-section{padding:0 0.75rem;margin-bottom:0.5rem}
+.nav-label{font-size:11px;font-weight:600;color:var(--text3);letter-spacing:0.8px;text-transform:uppercase;padding:0 0.5rem;margin-bottom:4px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:var(--radius);cursor:pointer;font-size:13px;color:var(--text2);transition:all 0.12s;border:none;background:none;width:100%;text-align:left}
+.nav-item:hover{background:var(--bg2);color:var(--text)}
+.nav-item.active{background:var(--blue-bg);color:var(--blue-text);font-weight:500}
+.nav-icon{width:16px;height:16px;opacity:0.6;flex-shrink:0}
+.nav-item.active .nav-icon{opacity:1}
+
+/* ===== PAGES ===== */
+.page{display:none}.page.active{display:block}
+.page-header{margin-bottom:2rem}
+.page-header h1{font-size:24px;font-weight:600;letter-spacing:-0.5px}
+.page-header p{font-size:14px;color:var(--text2);margin-top:4px}
+
+/* ===== CARDS ===== */
+.card{background:var(--bg);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem 1.5rem}
+.card+.card{margin-top:1rem}
+
+/* ===== BUTTONS ===== */
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border:0.5px solid var(--border2);border-radius:var(--radius);background:var(--bg);color:var(--text);font-size:13px;cursor:pointer;transition:all 0.12s;font-family:var(--font)}
+.btn:hover{background:var(--bg2)}
+.btn:active{transform:scale(0.97)}
+.btn-primary{border-color:var(--blue);color:var(--blue)}
+.btn-primary:hover{background:var(--blue-bg)}
+.btn-success{border-color:var(--green);color:var(--green-text)}
+.btn-success:hover{background:var(--green-bg)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:1.25rem}
+
+/* ===== BADGES ===== */
+.badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px}
+.badge-blue{background:var(--blue-bg);color:var(--blue-text)}
+.badge-green{background:var(--green-bg);color:var(--green-text)}
+.badge-amber{background:var(--amber-bg);color:var(--amber-text)}
+.badge-purple{background:var(--purple-bg);color:var(--purple-text)}
+.badge-red{background:var(--red-bg);color:var(--red-text)}
+.badge-teal{background:var(--teal-bg);color:var(--teal-text)}
+
+/* ===== FEEDBACK ===== */
+.feedback{font-size:13px;padding:8px 12px;border-radius:var(--radius);margin-top:8px;line-height:1.6}
+.feedback.ok{background:var(--green-bg);color:var(--green-text)}
+.feedback.bad{background:var(--red-bg);color:var(--red-text)}
+.feedback.info{background:var(--blue-bg);color:var(--blue-text)}
+.feedback.warn{background:var(--amber-bg);color:var(--amber-text)}
+
+/* ===== SCORE PILL ===== */
+.score-pill{font-size:13px;padding:5px 14px;border-radius:99px;background:var(--bg2);color:var(--text2);border:0.5px solid var(--border)}
+
+/* ===== SECTION TABS ===== */
+.stabs{display:flex;gap:4px;margin-bottom:1.5rem;border-bottom:0.5px solid var(--border)}
+.stab{padding:7px 16px;font-size:13px;color:var(--text2);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-0.5px;transition:all 0.12s}
+.stab.active{color:var(--text);border-bottom-color:var(--text);font-weight:500}
+.stab:hover:not(.active){color:var(--text)}
+.stab-section{display:none}.stab-section.active{display:block}
+
+/* ===== STAT CARDS ===== */
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:1.25rem}
+.stat-card{background:var(--bg2);border-radius:var(--radius);padding:0.75rem 1rem;text-align:center}
+.stat-num{font-size:22px;font-weight:600}
+.stat-label{font-size:11px;color:var(--text3);margin-top:2px}
+
+/* ===== FLASHCARD ===== */
+.fc-wrap{perspective:1200px;margin-bottom:1.25rem}
+.fc-inner{position:relative;width:100%;min-height:240px;transform-style:preserve-3d;transition:transform 0.45s ease;cursor:pointer}
+.fc-inner.flipped{transform:rotateY(180deg)}
+.fc-face{position:absolute;width:100%;min-height:240px;backface-visibility:hidden;border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:2rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--bg)}
+.fc-back{transform:rotateY(180deg)}
+.fc-label{font-size:10px;font-weight:600;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-bottom:0.75rem}
+.fc-word{font-size:30px;font-weight:600;letter-spacing:-0.5px;margin-bottom:4px}
+.fc-pos{font-size:13px;color:var(--text2);font-style:italic;margin-bottom:1rem}
+.fc-def{font-size:15px;line-height:1.7;max-width:480px;margin-bottom:0.75rem}
+.fc-ex{font-size:13px;color:var(--text2);font-style:italic;border-left:2px solid var(--border2);padding-left:12px;max-width:480px;line-height:1.6}
+.fc-hint{font-size:12px;color:var(--text3);margin-top:1.25rem}
+.fc-controls{display:flex;align-items:center;gap:8px;margin-bottom:1.25rem;flex-wrap:wrap}
+.fc-controls select,.fc-controls label{font-size:13px}
+.fc-controls select{padding:5px 10px;border:0.5px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);cursor:pointer}
+.fc-controls label{color:var(--text2)}
+.fc-progress{font-size:13px;color:var(--text2);margin-left:auto}
+.fc-action-row{display:flex;gap:8px;justify-content:center;margin-bottom:1.25rem}
+
+/* ===== GRAMMAR TENSES ===== */
+.tense-item{border:0.5px solid var(--border);border-radius:var(--radius-lg);margin-bottom:0.75rem;overflow:hidden}
+.tense-hdr{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 1.25rem;cursor:pointer;background:var(--bg);transition:background 0.12s}
+.tense-hdr:hover{background:var(--bg2)}
+.tense-name{font-size:15px;font-weight:500}
+.tense-form{font-size:12px;color:var(--text2);font-family:var(--font-mono);margin-top:2px}
+.tense-chevron{font-size:12px;color:var(--text3);transition:transform 0.2s}
+.tense-item.open .tense-chevron{transform:rotate(90deg)}
+.tense-body{display:none;padding:0 1.25rem 1.25rem}
+.tense-item.open .tense-body{display:block}
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+@media(max-width:600px){.tgrid{grid-template-columns:1fr}}
+.tgrid h4{font-size:11px;font-weight:600;color:var(--text3);letter-spacing:0.8px;text-transform:uppercase;margin-bottom:6px}
+.formula{background:var(--bg2);border-radius:var(--radius);padding:0.75rem 1rem;font-size:13px;font-family:var(--font-mono);line-height:1.9}
+.use-list,.exc-list{list-style:none}
+.use-list li,.exc-list li{font-size:13px;padding:3px 0 3px 16px;position:relative;line-height:1.6}
+.use-list li::before{content:"•";position:absolute;left:0;color:var(--text3)}
+.exc-list li::before{content:"!";position:absolute;left:0;color:var(--red);font-weight:600}
+.signals{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.signal{font-size:11px;padding:3px 9px;background:var(--bg2);border-radius:99px;color:var(--text2);border:0.5px solid var(--border)}
+.ex-table{width:100%;border-collapse:collapse;margin-top:0.75rem}
+.ex-table td{font-size:13px;padding:5px 8px;border-bottom:0.5px solid var(--border);vertical-align:top}
+.ex-table tr:last-child td{border-bottom:none}
+.ex-plus{color:var(--green-text)}.ex-minus{color:var(--red-text)}.ex-q{color:var(--blue-text)}
+.ex-lbl{color:var(--text3);font-weight:600;font-size:11px;width:20px}
+
+/* ===== READING ===== */
+.passage-box{border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin-bottom:1.5rem;background:var(--bg)}
+.passage-title{font-size:16px;font-weight:600;margin-bottom:0.75rem}
+.passage-type{font-size:10px;font-weight:600;letter-spacing:1px;color:var(--text3);text-transform:uppercase;margin-bottom:4px}
+.passage-text{font-size:14px;line-height:1.85;color:var(--text)}
+.passage-text p{margin-bottom:0.75rem}.passage-text p:last-child{margin-bottom:0}
+.q-block{border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:0.75rem;background:var(--bg)}
+.q-num{font-size:10px;font-weight:600;color:var(--text3);letter-spacing:0.8px;text-transform:uppercase;margin-bottom:5px}
+.q-text{font-size:14px;line-height:1.6;margin-bottom:0.75rem}
+.options{display:flex;flex-direction:column;gap:5px}
+.opt{display:flex;align-items:flex-start;gap:9px;padding:7px 10px;border:0.5px solid var(--border);border-radius:var(--radius);cursor:pointer;font-size:13px;transition:all 0.12s}
+.opt:hover{background:var(--bg2)}
+.opt.selected{border-color:var(--blue);background:var(--blue-bg);color:var(--blue-text)}
+.opt.correct{border-color:var(--green);background:var(--green-bg);color:var(--green-text)}
+.opt.wrong{border-color:var(--red);background:var(--red-bg);color:var(--red-text)}
+.opt-ltr{font-weight:600;min-width:16px;font-size:12px}
+.tf-row{display:flex;gap:7px;flex-wrap:wrap}
+.tf-btn{padding:6px 14px;border:0.5px solid var(--border2);border-radius:var(--radius);cursor:pointer;font-size:13px;background:var(--bg);color:var(--text);transition:all 0.12s;font-family:var(--font)}
+.tf-btn:hover{background:var(--bg2)}
+.tf-btn.selected{border-color:var(--blue);background:var(--blue-bg);color:var(--blue-text)}
+.tf-btn.correct{border-color:var(--green);background:var(--green-bg);color:var(--green-text)}
+.tf-btn.wrong{border-color:var(--red);background:var(--red-bg);color:var(--red-text)}
+
+/* ===== MATCHING ===== */
+.match-instr{font-size:13px;line-height:1.7;color:var(--text2);padding:10px 14px;border-left:3px solid var(--blue);margin-bottom:1.25rem;border-radius:0}
+.people-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-bottom:1.5rem}
+.person-card{border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:1rem;background:var(--bg)}
+.person-name{font-size:13px;font-weight:600;margin-bottom:1px}
+.person-role{font-size:11px;color:var(--text3);font-style:italic;margin-bottom:8px}
+.person-text{font-size:12px;line-height:1.7;color:var(--text)}
+.match-block{border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:0.75rem;background:var(--bg)}
+.match-q{font-size:14px;line-height:1.6;margin-bottom:8px}
+.match-sel{font-size:13px;padding:6px 10px;border:0.5px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);cursor:pointer;width:100%;max-width:340px;font-family:var(--font)}
+.match-sel.correct{border-color:var(--green);background:var(--green-bg);color:var(--green-text)}
+.match-sel.wrong{border-color:var(--red);background:var(--red-bg);color:var(--red-text)}
+
+
+/* ===== API KEY PANEL ===== */
+.api-key-panel{border-top:0.5px solid var(--border);margin-top:auto;padding:1rem 1.25rem}
+.api-key-label{font-size:11px;font-weight:600;color:var(--text3);letter-spacing:0.8px;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.api-key-status{width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0}
+.api-key-status.ok{background:var(--green)}
+.api-key-input-row{display:flex;gap:6px;margin-bottom:6px}
+.api-key-input{flex:1;font-size:12px;padding:5px 8px;border:0.5px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);font-family:var(--font-mono);min-width:0}
+.api-key-input:focus{outline:none;border-color:var(--blue)}
+.api-key-btn{font-size:12px;padding:5px 10px;border:0.5px solid var(--border2);border-radius:var(--radius);background:var(--bg);color:var(--text);cursor:pointer;white-space:nowrap;font-family:var(--font)}
+.api-key-btn:hover{background:var(--bg2)}
+.api-key-hint{font-size:11px;color:var(--text3);line-height:1.5}
+.api-key-hint a{color:var(--blue);text-decoration:none}
+.api-key-hint a:hover{text-decoration:underline}
+.api-key-saved{font-size:11px;color:var(--green);margin-top:4px;display:none}
+.sidebar{display:flex;flex-direction:column}
+
+/* ===== WRITING ===== */
+.writing-prompt{background:var(--bg2);border-left:3px solid var(--blue);padding:1rem 1.25rem;border-radius:0;margin-bottom:1rem}
+.writing-prompt .prompt-type{font-size:10px;font-weight:600;letter-spacing:1px;color:var(--blue);text-transform:uppercase;margin-bottom:4px}
+.writing-prompt .prompt-text{font-size:14px;line-height:1.7}
+.writing-prompt .prompt-tips{font-size:12px;color:var(--text2);margin-top:6px}
+.writing-meta{display:flex;gap:12px;margin-bottom:0.75rem;flex-wrap:wrap;align-items:center}
+.writing-meta span{font-size:12px;color:var(--text2)}
+.word-count{font-size:12px;color:var(--text2)}
+.word-count.ok{color:var(--green-text)}
+.word-count.warn{color:var(--amber-text)}
+textarea{width:100%;border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1.25rem;font-size:14px;line-height:1.8;font-family:var(--font);resize:vertical;min-height:220px;background:var(--bg);color:var(--text);transition:border-color 0.12s}
+textarea:focus{outline:none;border-color:var(--blue)}
+.rubric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;margin-bottom:1rem}
+.rubric-card{background:var(--bg2);border-radius:var(--radius);padding:0.75rem 1rem}
+.rubric-label{font-size:11px;font-weight:600;color:var(--text3);margin-bottom:2px}
+.rubric-score{font-size:20px;font-weight:600}
+.rubric-max{font-size:11px;color:var(--text3)}
+.analysis-block{border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-top:0.75rem;background:var(--bg)}
+.analysis-title{font-size:13px;font-weight:600;margin-bottom:6px}
+.analysis-list{list-style:none}
+.analysis-list li{font-size:13px;line-height:1.6;padding:3px 0 3px 16px;position:relative}
+.analysis-list li.good::before{content:"✓";position:absolute;left:0;color:var(--green)}
+.analysis-list li.issue::before{content:"△";position:absolute;left:0;color:var(--amber)}
+.analysis-list li.error::before{content:"✗";position:absolute;left:0;color:var(--red)}
+.highlight-error{background:#fff0f0;border-bottom:2px solid var(--red);cursor:help}
+.highlight-warn{background:#fffbf0;border-bottom:2px solid var(--amber);cursor:help}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid var(--border2);border-top-color:var(--blue);border-radius:50%;animation:spin 0.7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-row{display:flex;align-items:center;gap:8px;color:var(--text2);font-size:13px;padding:1rem 0}
+.api-notice{font-size:12px;color:var(--text3);padding:8px 12px;background:var(--bg2);border-radius:var(--radius);margin-top:0.5rem}
+</style>
+</head>
+<body>
+<div class="app-shell">
+  <nav class="sidebar">
+    <div class="logo">
+      <h2>IELTS Prep</h2>
+      <p>English Mastery Hub</p>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">Vocabulary</div>
+      <button class="nav-item active" onclick="goPage('flashcards')">
+        <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="3" width="14" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.2"/><line x1="5" y1="7" x2="11" y2="7" stroke="currentColor" stroke-width="1.2"/><line x1="5" y1="10" x2="9" y2="10" stroke="currentColor" stroke-width="1.2"/></svg>
+        Flashcards
+      </button>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">Grammar</div>
+      <button class="nav-item" onclick="goPage('tenses')">
+        <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 4h12M2 8h8M2 12h10"/></svg>
+        Verb Tenses
+      </button>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">Reading</div>
+      <button class="nav-item" onclick="goPage('reading-single')">
+        <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="2" width="12" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>
+        Single Passage
+      </button>
+      <button class="nav-item" onclick="goPage('reading-match')">
+        <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="4" cy="5" r="1.5"/><circle cx="4" cy="11" r="1.5"/><circle cx="12" cy="8" r="1.5"/><path d="M5.5 5.5L10.5 7.5M5.5 10.5L10.5 8.5"/></svg>
+        People Matching
+      </button>
+    </div>
+    <div class="nav-section">
+      <div class="nav-label">Writing</div>
+      <button class="nav-item" onclick="goPage('writing-task1')">
+        <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 12l2-2 8-8 2 2-8 8-2 2z"/><path d="M10 4l2 2"/></svg>
+        Task 1 — Graphs
+      </button>
+      <button class="nav-item" onclick="goPage('writing-task2')">
+        <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 3h10M3 7h10M3 11h6"/><circle cx="13" cy="12" r="2"/></svg>
+        Task 2 — Essay
+      </button>
+    </div>
+
+
+    <div id="api-key-panel" style="border-top:0.5px solid var(--border);margin-top:1.5rem;padding:1rem 1.25rem">
+      <div style="font-size:11px;font-weight:600;color:var(--text3);letter-spacing:0.8px;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px">
+        <span id="key-status-dot" style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;display:inline-block"></span>
+        Writing AI Key
+      </div>
+      <div style="display:flex;gap:6px;margin-bottom:6px">
+        <input id="api-key-input" type="password" placeholder="sk-ant-..." autocomplete="off"
+          style="flex:1;font-size:12px;padding:5px 8px;border:0.5px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);font-family:var(--font-mono);min-width:0" />
+        <button onclick="APIKey.save()"
+          style="font-size:12px;padding:5px 10px;border:0.5px solid var(--border2);border-radius:var(--radius);background:var(--bg);color:var(--text);cursor:pointer;white-space:nowrap;font-family:var(--font)">Save</button>
+      </div>
+      <div style="font-size:11px;color:var(--text3);line-height:1.6">
+        Stored only in this browser.<br>
+        Sent only to Anthropic directly.<br>
+        <a href="https://console.anthropic.com/settings/keys" target="_blank" style="color:var(--blue);text-decoration:none">Get a free API key →</a>
+      </div>
+      <div id="key-saved-msg" style="font-size:11px;color:var(--green);margin-top:4px;display:none">✓ Key saved successfully</div>
+      <button onclick="APIKey.clear()" style="margin-top:6px;font-size:11px;color:var(--text3);border:none;background:none;cursor:pointer;padding:0;font-family:var(--font)">Remove key</button>
+    </div>
+  </nav><!-- end sidebar -->
+  <!-- API KEY PANEL injected into sidebar via JS -->
+
+  <main class="main">
+    <!-- ==================== FLASHCARDS ==================== -->
+    <div class="page active" id="page-flashcards">
+      <div class="page-header">
+        <h1>Vocabulary Flashcards</h1>
+        <p>Master IELTS-level vocabulary across 6 categories — 120 words total</p>
+      </div>
+      <div class="fc-controls">
+        <label>Category:</label>
+        <select onchange="FC.setCategory(this.value)" id="fc-cat-sel">
+          <option value="academic">Academic Vocabulary (AWL)</option>
+          <option value="linking">Linking Words &amp; Connectors</option>
+          <option value="formal">Formal Register</option>
+          <option value="topic">IELTS Topic Words</option>
+          <option value="verbs">Key Academic Verbs</option>
+          <option value="collocations">Common Collocations</option>
+        </select>
+        <span class="fc-progress" id="fc-prog">Card 1 of 20</span>
+      </div>
+      <div class="fc-wrap">
+        <div class="fc-inner" id="fc-card" onclick="FC.flip()">
+          <div class="fc-face">
+            <div class="fc-label">Word</div>
+            <div class="fc-word" id="fc-word">—</div>
+            <div class="fc-pos" id="fc-pos">—</div>
+            <div class="fc-hint">Click to reveal definition</div>
+          </div>
+          <div class="fc-face fc-back">
+            <div class="fc-label">Definition</div>
+            <div class="fc-def" id="fc-def">—</div>
+            <div class="fc-ex" id="fc-ex">—</div>
+          </div>
+        </div>
+      </div>
+      <div class="fc-action-row">
+        <button class="btn" style="border-color:var(--red);color:var(--red-text)" onclick="FC.mark('review')">Need Review</button>
+        <button class="btn" onclick="FC.next()">Skip →</button>
+        <button class="btn btn-success" onclick="FC.mark('know')">I Know This ✓</button>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="stat-num" id="fc-stat-t">0</div><div class="stat-label">Studied</div></div>
+        <div class="stat-card"><div class="stat-num" style="color:var(--green)" id="fc-stat-k">0</div><div class="stat-label">Known</div></div>
+        <div class="stat-card"><div class="stat-num" style="color:var(--red)" id="fc-stat-r">0</div><div class="stat-label">To Review</div></div>
+      </div>
+    </div>
+
+    <!-- ==================== TENSES ==================== -->
+    <div class="page" id="page-tenses">
+      <div class="page-header">
+        <h1>English Verb Tenses</h1>
+        <p>All 12 major tenses with structure, uses, exceptions and examples</p>
+      </div>
+      <div id="tense-list"></div>
+    </div>
+
+    <!-- ==================== READING SINGLE ==================== -->
+    <div class="page" id="page-reading-single">
+      <div class="page-header">
+        <h1>Reading — Single Passage</h1>
+        <p>Read the passage carefully, then answer all questions</p>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:1.25rem;flex-wrap:wrap">
+        <label style="font-size:13px;color:var(--text2)">Passage:</label>
+        <select onchange="RS.load(this.value)" style="font-size:13px;padding:5px 10px;border:0.5px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);cursor:pointer">
+          <option value="0">The Future of Remote Work</option>
+          <option value="1">Coral Reef Ecosystems</option>
+          <option value="2">Artificial Intelligence in Medicine</option>
+          <option value="3">The Psychology of Habit Formation</option>
+          <option value="4">The Economics of Happiness</option>
+          <option value="5">Ocean Plastic Pollution</option>
+          <option value="6">The Science of Sleep</option>
+          <option value="7">The Gig Economy</option>
+        </select>
+      </div>
+      <div class="passage-box">
+        <div class="passage-type" id="rs-type"></div>
+        <div class="passage-title" id="rs-title"></div>
+        <div class="passage-text" id="rs-body"></div>
+      </div>
+      <div id="rs-questions"></div>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="RS.check()">Check answers</button>
+        <button class="btn" onclick="RS.reset()">Reset</button>
+        <span class="score-pill" id="rs-score" style="display:none"></span>
+      </div>
+    </div>
+
+    <!-- ==================== READING MATCHING ==================== -->
+    <div class="page" id="page-reading-match">
+      <div class="page-header">
+        <h1>Reading — People Matching</h1>
+        <p>Match each statement to the correct person. A person may be used more than once.</p>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:1.25rem;flex-wrap:wrap">
+        <label style="font-size:13px;color:var(--text2)">Exercise:</label>
+        <select onchange="RM.load(this.value)" style="font-size:13px;padding:5px 10px;border:0.5px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);cursor:pointer">
+          <option value="0">Views on Educational Technology</option>
+          <option value="1">Perspectives on Urban Planning</option>
+          <option value="2">Opinions on Renewable Energy</option>
+          <option value="3">Perspectives on Public Health Policy</option>
+          <option value="4">Views on Artificial Intelligence</option>
+        </select>
+      </div>
+      <div class="match-instr" id="rm-instr"></div>
+      <div class="people-grid" id="rm-people"></div>
+      <div id="rm-questions"></div>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="RM.check()">Check answers</button>
+        <button class="btn" onclick="RM.reset()">Reset</button>
+        <span class="score-pill" id="rm-score" style="display:none"></span>
+      </div>
+    </div>
+
+    <!-- ==================== WRITING TASK 1 ==================== -->
+    <div class="page" id="page-writing-task1">
+      <div class="page-header">
+        <h1>Writing — Task 1</h1>
+        <p>Describe a graph, chart, diagram or process. Minimum 150 words. Aim for 170–190.</p>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:1rem;flex-wrap:wrap">
+        <label style="font-size:13px;color:var(--text2)">Prompt:</label>
+        <select onchange="W1.loadPrompt(this.value)" style="font-size:13px;padding:5px 10px;border:0.5px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);cursor:pointer">
+          <option value="0">Bar chart — Internet usage by age group</option>
+          <option value="1">Line graph — CO2 emissions 1990–2020</option>
+          <option value="2">Pie chart — Household energy consumption</option>
+          <option value="3">Process diagram — Water recycling</option>
+          <option value="4">Table — University graduation rates by gender</option>
+          <option value="5">Map — Changes to a town centre 2000–2020</option>
+        </select>
+      </div>
+      <div id="w1-prompt-box"></div>
+      <div class="card" style="margin-bottom:0.75rem">
+        <div class="writing-meta">
+          <span id="w1-wc">0 words</span>
+          <span style="color:var(--border2)">|</span>
+          <span style="color:var(--text3)">Minimum: 150 words</span>
+        </div>
+        <textarea id="w1-input" placeholder="Write your Task 1 response here..." oninput="W1.countWords()"></textarea>
+      </div>
+      <div class="api-notice" id="w1-api-notice">Your response will be analysed by Claude AI. <span id="w1-key-status-txt" style="color:var(--red-text)">⚠ Add your Anthropic API key in the sidebar to enable analysis.</span></div>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="W1.analyse()">Analyse my response</button>
+        <button class="btn" onclick="W1.clear()">Clear</button>
+        <button class="btn" onclick="W1.showModel()">Show model answer</button>
+      </div>
+      <div id="w1-feedback"></div>
+    </div>
+
+    <!-- ==================== WRITING TASK 2 ==================== -->
+    <div class="page" id="page-writing-task2">
+      <div class="page-header">
+        <h1>Writing — Task 2</h1>
+        <p>Write an essay in response to a point of view, argument or problem. Minimum 250 words.</p>
+      </div>
+      <div style="display:flex;gap:10px;align-items:center;margin-bottom:1rem;flex-wrap:wrap">
+        <label style="font-size:13px;color:var(--text2)">Prompt:</label>
+        <select onchange="W2.loadPrompt(this.value)" style="font-size:13px;padding:5px 10px;border:0.5px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);cursor:pointer">
+          <option value="0">Technology &amp; Society — Social media and young people</option>
+          <option value="1">Environment — Governments vs individuals</option>
+          <option value="2">Education — University education and employment</option>
+          <option value="3">Globalisation — Cultural identity</option>
+          <option value="4">Health — Responsibility for public health</option>
+          <option value="5">Urban Issues — Private car ownership</option>
+          <option value="6">Technology — Smartphones and social isolation</option>
+          <option value="7">Education — The value of learning history</option>
+        </select>
+      </div>
+      <div id="w2-prompt-box"></div>
+      <div class="card" style="margin-bottom:0.75rem">
+        <div class="writing-meta">
+          <span id="w2-wc">0 words</span>
+          <span style="color:var(--border2)">|</span>
+          <span style="color:var(--text3)">Minimum: 250 words</span>
+        </div>
+        <textarea id="w2-input" placeholder="Write your Task 2 essay here..." style="min-height:280px" oninput="W2.countWords()"></textarea>
+      </div>
+      <div class="api-notice" id="w2-api-notice">Your essay will be evaluated across all four IELTS band descriptors. <span id="w2-key-status-txt" style="color:var(--red-text)">⚠ Add your Anthropic API key in the sidebar to enable analysis.</span></div>
+      <div class="btn-row">
+        <button class="btn btn-primary" onclick="W2.analyse()">Analyse my essay</button>
+        <button class="btn" onclick="W2.clear()">Clear</button>
+        <button class="btn" onclick="W2.showModel()">Show model answer</button>
+      </div>
+      <div id="w2-feedback"></div>
+    </div>
+
+  </main>
+</div>
+<script>
+// ============================================================
+// NAVIGATION
+// ============================================================
+function goPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+// ============================================================
+// FLASHCARD DATA — 20 words per category, 120 total
+// ============================================================
+const VOCAB = {
+  academic: [
+    {w:"Analyse",pos:"verb",d:"To examine something in detail to understand it or draw conclusions from it.",e:"The essay requires you to analyse the social causes of poverty."},
+    {w:"Coherent",pos:"adj",d:"Logical and consistent; forming a unified, easy-to-follow whole.",e:"Her argument was coherent and well-supported by statistical evidence."},
+    {w:"Concept",pos:"noun",d:"An abstract idea or general principle representing something.",e:"The concept of justice varies considerably across different cultures."},
+    {w:"Establish",pos:"verb",d:"To set up or prove something on a firm or permanent basis.",e:"Research has established a clear link between air pollution and respiratory disease."},
+    {w:"Significant",pos:"adj",d:"Sufficiently great or important to deserve attention; noteworthy.",e:"There was a significant increase in global average temperatures last decade."},
+    {w:"Facilitate",pos:"verb",d:"To make an action, process or outcome easier or more achievable.",e:"Technology can facilitate communication across geographical borders."},
+    {w:"Imply",pos:"verb",d:"To suggest something without stating it directly or explicitly.",e:"The data implies that literacy rates are improving in the region."},
+    {w:"Substantial",pos:"adj",d:"Of considerable importance, size or worth; large in quantity.",e:"The report identifies substantial improvements in renewable energy capacity."},
+    {w:"Crucial",pos:"adj",d:"Decisive or critical, especially for the success or failure of something.",e:"It is crucial to manage your time effectively during the IELTS exam."},
+    {w:"Phenomenon",pos:"noun",d:"An observable fact or event, especially one whose cause is uncertain.",e:"Globalisation is both a complex economic and cultural phenomenon."},
+    {w:"Constitute",pos:"verb",d:"To be a part of or make up a whole; to represent something legally or formally.",e:"Women constitute over 50% of the total workforce in that sector."},
+    {w:"Derive",pos:"verb",d:"To obtain something from a source; to have an origin in something.",e:"Much of our renewable energy is derived from solar and wind sources."},
+    {w:"Indicate",pos:"verb",d:"To point out or show something; to be a sign of something.",e:"Survey results indicate growing public concern about data privacy."},
+    {w:"Maintain",pos:"verb",d:"To keep something in the same state; to assert something is true.",e:"The government has maintained its commitment to reducing carbon emissions."},
+    {w:"Obtain",pos:"verb",d:"To succeed in getting something, especially through effort or request.",e:"Students must obtain a minimum band score of 6.5 for university entry."},
+    {w:"Perceive",pos:"verb",d:"To become aware of or interpret something in a particular way.",e:"Migration is often perceived as a threat, despite its economic benefits."},
+    {w:"Precede",pos:"verb",d:"To come before something in time, order or position.",e:"A thorough literature review should precede any original research.",},
+    {w:"Restrict",pos:"verb",d:"To limit something or keep it under control; to reduce its scope.",e:"The new legislation restricts the use of single-use plastics nationwide."},
+    {w:"Sector",pos:"noun",d:"A distinct part of an economy, society or sphere of activity.",e:"The private sector has invested heavily in clean energy technologies."},
+    {w:"Variable",pos:"noun/adj",d:"An element that can change or vary; something that is not fixed.",e:"Temperature and humidity are key variables in this climate experiment."}
+  ],
+  linking: [
+    {w:"Furthermore",pos:"adv",d:"In addition to what has been said; used to add a reinforcing point.",e:"The policy is expensive. Furthermore, it has not been properly evaluated."},
+    {w:"Nevertheless",pos:"adv",d:"In spite of that; however. Introduces a contrasting or surprising point.",e:"The task was extremely difficult; nevertheless, she completed it on time."},
+    {w:"Consequently",pos:"adv",d:"As a direct result of what has just been stated.",e:"He missed the train. Consequently, he arrived late to the interview."},
+    {w:"Although",pos:"conj",d:"In spite of the fact that; even though. Introduces a concession.",e:"Although she revised extensively, she did not achieve the score she hoped for."},
+    {w:"Moreover",pos:"adv",d:"As a further matter; besides. Introduces additional supporting evidence.",e:"The drug is effective. Moreover, it has no reported side effects."},
+    {w:"Nonetheless",pos:"adv",d:"Despite what has just been said; all the same.",e:"The results were mixed; nonetheless, the project was considered worthwhile."},
+    {w:"In contrast",pos:"phrase",d:"Used to highlight a clear difference between two things or situations.",e:"In contrast to urban areas, rural regions have fewer healthcare facilities."},
+    {w:"As a result",pos:"phrase",d:"Because of a previously mentioned cause; therefore.",e:"Pollution levels increased sharply. As a result, fish populations declined."},
+    {w:"On the other hand",pos:"phrase",d:"Introduces a contrasting or alternative perspective.",e:"Solar energy is clean. On the other hand, it requires significant land area."},
+    {w:"In conclusion",pos:"phrase",d:"Used to introduce the final summary or closing argument of a piece.",e:"In conclusion, both approaches have merit and can be used in combination."},
+    {w:"In addition",pos:"phrase",d:"Used to introduce an extra point that supports the argument.",e:"In addition to rising costs, the project also faced staffing shortages."},
+    {w:"By contrast",pos:"phrase",d:"Used to emphasise how different two things are.",e:"By contrast, developed nations have far greater access to clean water."},
+    {w:"Therefore",pos:"adv",d:"For that reason; as a logical consequence of what has been stated.",e:"The sample size was too small; therefore, the results may not be reliable."},
+    {w:"However",pos:"adv",d:"Used to introduce a statement that contrasts with or qualifies the previous one.",e:"The plan was ambitious. However, it lacked sufficient funding to succeed."},
+    {w:"Despite",pos:"prep",d:"Without being affected by; in spite of. Introduces a concessive phrase.",e:"Despite strong opposition, the government passed the new environmental bill."},
+    {w:"Whereas",pos:"conj",d:"In contrast or comparison with the fact that; while on the other hand.",e:"Whereas urban areas have good transport links, rural areas are underserved."},
+    {w:"To illustrate",pos:"phrase",d:"Used to introduce a specific example that supports the previous claim.",e:"To illustrate, a 2022 study found that 78% of respondents preferred remote work."},
+    {w:"As a consequence",pos:"phrase",d:"Because of this; as a result of the previously stated situation.",e:"As a consequence of deforestation, many species have lost their natural habitat."},
+    {w:"In other words",pos:"phrase",d:"Used to restate or clarify the previous point in simpler language.",e:"In other words, the evidence strongly suggests that the policy has failed."},
+    {w:"Ultimately",pos:"adv",d:"In the end; at the most basic level; in the final analysis.",e:"Ultimately, the success of any education reform depends on teacher support."}
+  ],
+  formal: [
+    {w:"Endeavour",pos:"verb/noun",d:"To try hard to do or achieve something; a serious, sustained attempt.",e:"Scientists continue to endeavour to find effective treatments for the disease."},
+    {w:"Reside",pos:"verb",d:"To live permanently or on a long-term basis in a particular place.",e:"Many skilled workers choose to reside in cities with better employment prospects."},
+    {w:"Acquire",pos:"verb",d:"To gain, obtain or develop something, especially through effort.",e:"Students can acquire valuable critical thinking skills through debate practice."},
+    {w:"Demonstrate",pos:"verb",d:"To show or prove something clearly by providing evidence or examples.",e:"The study demonstrates the effectiveness of early childhood intervention."},
+    {w:"Acknowledge",pos:"verb",d:"To accept or admit the existence or truth of something.",e:"It is important to acknowledge opposing viewpoints in an academic essay."},
+    {w:"Adequate",pos:"adj",d:"Satisfactory or acceptable in quality or quantity; sufficient for purpose.",e:"Critics question whether current funding for education is adequate."},
+    {w:"Prevalent",pos:"adj",d:"Widespread in a particular area or at a particular time; common.",e:"Smartphone addiction is increasingly prevalent among adolescents worldwide."},
+    {w:"Impose",pos:"verb",d:"To force something unwelcome to be accepted or put in place.",e:"Several governments have imposed restrictions on the export of rare minerals."},
+    {w:"Diminish",pos:"verb",d:"To make or become less; to reduce in size, importance or quality.",e:"Repeated failure can gradually diminish a student's motivation to learn."},
+    {w:"Encompass",pos:"verb",d:"To include or deal with a wide range of things; to surround completely.",e:"The report encompasses a wide range of economic, social and environmental factors."},
+    {w:"Adhere",pos:"verb",d:"To stick firmly to a surface, belief or rule; to follow closely.",e:"All participants were required to adhere strictly to the ethical guidelines."},
+    {w:"Contend",pos:"verb",d:"To assert something as a position; to compete for something; to struggle with.",e:"Some economists contend that austerity measures worsen long-term inequality."},
+    {w:"Depict",pos:"verb",d:"To show or represent something in a picture, story or description.",e:"The graph depicts a steady rise in average global temperatures since 1980."},
+    {w:"Entail",pos:"verb",d:"To involve or make something necessary as a part or consequence.",e:"The proposed reform would entail significant changes to the tax system."},
+    {w:"Exacerbate",pos:"verb",d:"To make a problem, situation or negative feeling worse.",e:"Inadequate housing can exacerbate existing health inequalities."},
+    {w:"Mitigate",pos:"verb",d:"To make something less severe, serious or painful; to reduce the impact of.",e:"Planting urban trees can help mitigate the effects of the heat island effect."},
+    {w:"Proliferate",pos:"verb",d:"To increase rapidly in number; to multiply or spread quickly.",e:"Misinformation has proliferated rapidly across social media platforms."},
+    {w:"Scrutinise",pos:"verb",d:"To examine or inspect something closely and thoroughly.",e:"Journalists have a duty to scrutinise the actions of public institutions."},
+    {w:"Undermine",pos:"verb",d:"To gradually weaken or damage something, especially someone's confidence.",e:"Corruption can undermine public trust in government institutions."},
+    {w:"Yield",pos:"verb",d:"To produce or provide a result, crop, profit or effect.",e:"The experiment yielded promising results that warrant further investigation."}
+  ],
+  topic: [
+    {w:"Urbanisation",pos:"noun",d:"The process by which more people come to live in towns and cities.",e:"Rapid urbanisation has created severe pressure on housing and infrastructure."},
+    {w:"Sustainable",pos:"adj",d:"Able to be maintained long-term without harming the environment.",e:"We need sustainable energy sources to reduce dependence on fossil fuels."},
+    {w:"Inequality",pos:"noun",d:"An unequal distribution of wealth, opportunities or privileges in society.",e:"Economic inequality between the wealthiest and poorest nations continues to grow."},
+    {w:"Biodiversity",pos:"noun",d:"The variety of plant and animal life in the world or a specific habitat.",e:"Intensive farming practices pose a serious threat to biodiversity."},
+    {w:"Infrastructure",pos:"noun",d:"Basic physical and organisational structures needed for a society to function.",e:"Investment in transport infrastructure is vital for economic development."},
+    {w:"Migration",pos:"noun",d:"Movement of people from one place to another, especially across borders.",e:"Migration has shaped the cultural identity of most modern cities."},
+    {w:"Emissions",pos:"noun",d:"The discharge of gases or radiation, especially greenhouse gases, into the atmosphere.",e:"Countries must significantly reduce carbon emissions to meet climate targets."},
+    {w:"Automation",pos:"noun",d:"Use of technology to perform tasks with minimal human intervention.",e:"Automation is expected to replace a large number of manual jobs by 2040."},
+    {w:"Globalisation",pos:"noun",d:"The process by which economies, cultures and governments interact internationally.",e:"Globalisation has brought both economic opportunity and growing inequality."},
+    {w:"Deforestation",pos:"noun",d:"The large-scale removal of trees from forests for agricultural or industrial use.",e:"Deforestation in the Amazon has accelerated significantly over the past decade."},
+    {w:"Obesity",pos:"noun",d:"A medical condition involving excessive body fat that increases health risks.",e:"Childhood obesity is a growing public health concern in many developed nations."},
+    {w:"Digitisation",pos:"noun",d:"The process of converting information or services into digital format.",e:"The digitisation of public records has greatly improved government efficiency."},
+    {w:"Pandemic",pos:"noun",d:"A disease prevalent over a whole country or world at the same time.",e:"The 2020 pandemic accelerated the global shift toward remote working models."},
+    {w:"Renewable",pos:"adj",d:"A natural resource or energy source that is replenished naturally and sustainably.",e:"Wind and solar are the fastest-growing sources of renewable energy worldwide."},
+    {w:"Consumerism",pos:"noun",d:"The preoccupation with and tendency towards the buying of goods and services.",e:"Critics argue that consumerism encourages waste and environmental damage."},
+    {w:"Ageing population",pos:"noun phrase",d:"A demographic trend where the proportion of older people in society increases.",e:"An ageing population places considerable strain on pension and healthcare systems."},
+    {w:"Carbon footprint",pos:"noun phrase",d:"The total amount of greenhouse gases produced by an individual or organisation.",e:"Consumers are increasingly aware of their personal carbon footprint."},
+    {w:"Welfare state",pos:"noun phrase",d:"A system where the government provides social protection for its citizens.",e:"Supporters argue that a strong welfare state reduces poverty and inequality."},
+    {w:"Gentrification",pos:"noun",d:"The process by which a poor urban area is upgraded, often displacing residents.",e:"Gentrification has made many inner-city neighbourhoods unaffordable for locals."},
+    {w:"Peer pressure",pos:"noun phrase",d:"Social influence from one's peers to conform to group norms or behaviour.",e:"Peer pressure is a major factor in adolescent risk-taking behaviour."}
+  ],
+  verbs: [
+    {w:"Argue",pos:"verb",d:"To give reasons or cite evidence in support of a position or claim.",e:"The author argues convincingly that current education policy is misdirected."},
+    {w:"Assert",pos:"verb",d:"To state something confidently, without necessarily providing proof.",e:"Critics assert that privatisation leads to a reduction in service quality."},
+    {w:"Challenge",pos:"verb",d:"To question or dispute something; to invite comparison or competition.",e:"These findings challenge long-held assumptions about economic growth."},
+    {w:"Claim",pos:"verb",d:"To state something as a fact, typically without offering evidence.",e:"The report claims that urban air quality has improved over the past decade."},
+    {w:"Conclude",pos:"verb",d:"To arrive at a judgement or decision by reasoning from the evidence.",e:"The researchers concluded that dietary habits are the primary contributing factor."},
+    {w:"Contradict",pos:"verb",d:"To assert the opposite of what someone else has stated.",e:"These results directly contradict the findings of the earlier 2018 study."},
+    {w:"Critique",pos:"verb/noun",d:"To evaluate something in a detailed and analytical way, noting strengths and flaws.",e:"The essay must critique existing approaches before proposing alternatives."},
+    {w:"Evaluate",pos:"verb",d:"To form a careful judgement of the quality, value or importance of something.",e:"Students are expected to evaluate both the advantages and limitations of each approach."},
+    {w:"Examine",pos:"verb",d:"To inspect or investigate something thoroughly and in detail.",e:"The study examines the long-term effects of social media on mental wellbeing."},
+    {w:"Highlight",pos:"verb",d:"To draw special attention to something important or noteworthy.",e:"The WHO report highlights the global shortage of trained medical professionals."},
+    {w:"Illustrate",pos:"verb",d:"To explain or make something clear by using examples, charts or diagrams.",e:"The graph illustrates a sharp decline in manufacturing employment since 2005."},
+    {w:"Justify",pos:"verb",d:"To show or prove that something is right, reasonable or necessary.",e:"Proponents must justify the high cost of the proposed infrastructure project."},
+    {w:"Propose",pos:"verb",d:"To put forward a plan, idea or suggestion for consideration.",e:"The study proposes a series of policy recommendations to address urban inequality."},
+    {w:"Refute",pos:"verb",d:"To prove that something is wrong or false; to disprove decisively.",e:"Later experiments refuted the original hypothesis about bacterial resistance."},
+    {w:"Suggest",pos:"verb",d:"To put forward an idea or possibility for consideration; to imply.",e:"The data suggests that exercise significantly reduces the risk of depression."},
+    {w:"Support",pos:"verb",d:"To give evidence or arguments in favour of a claim or position.",e:"Several longitudinal studies support the benefits of bilingual education."},
+    {w:"Trace",pos:"verb",d:"To find or describe the origin and development of something over time.",e:"The essay traces the evolution of democratic governance in post-war Europe."},
+    {w:"Underline",pos:"verb",d:"To emphasise the importance or significance of something.",e:"These statistics underline the urgent need for investment in mental health services."},
+    {w:"Validate",pos:"verb",d:"To confirm or verify that something is sound, accurate or justified.",e:"The trial results validate the effectiveness of the new treatment protocol."},
+    {w:"Highlight",pos:"verb",d:"To make prominent; to draw attention to an important fact or issue.",e:"The documentary highlights the devastating impact of ocean plastic pollution."}
+  ],
+  collocations: [
+    {w:"Address an issue",pos:"verb phrase",d:"To actively deal with or tackle a problem or concern.",e:"Governments must address the issue of rising youth unemployment urgently."},
+    {w:"Bear in mind",pos:"verb phrase",d:"To remember or consider something when making a decision or judgement.",e:"Bear in mind that correlation does not necessarily imply causation."},
+    {w:"Cast doubt on",pos:"verb phrase",d:"To cause people to question or be uncertain about something previously accepted.",e:"The new evidence casts serious doubt on the validity of the original findings."},
+    {w:"Come to a conclusion",pos:"verb phrase",d:"To reach a final decision or judgement after considering the evidence.",e:"After reviewing all the data, the panel came to a unanimous conclusion."},
+    {w:"Draw a distinction",pos:"verb phrase",d:"To identify or emphasise the difference between two things.",e:"It is important to draw a clear distinction between correlation and causation."},
+    {w:"Give rise to",pos:"verb phrase",d:"To cause or produce something, especially something negative or complex.",e:"Rapid industrialisation gave rise to serious environmental degradation."},
+    {w:"Have implications for",pos:"verb phrase",d:"To have important consequences or effects for something or someone.",e:"These findings have significant implications for future education policy."},
+    {w:"Raise awareness",pos:"verb phrase",d:"To increase people's knowledge or understanding of an issue.",e:"Campaigns aim to raise awareness about the risks of excessive sugar consumption."},
+    {w:"Reach a consensus",pos:"verb phrase",d:"To achieve general agreement among a group of people.",e:"Scientists have reached a consensus on the human causes of climate change."},
+    {w:"Take into account",pos:"verb phrase",d:"To consider or include something as a factor when making a decision.",e:"The report fails to take into account the perspective of local communities."},
+    {w:"Wide-ranging",pos:"adj",d:"Covering a large variety of different subjects, areas or issues.",e:"The inquiry produced wide-ranging recommendations for healthcare reform."},
+    {w:"Far-reaching",pos:"adj",d:"Having important and extensive effects or consequences.",e:"The industrial revolution had far-reaching consequences for social structures."},
+    {w:"In-depth",pos:"adj",d:"Thorough and detailed; going beneath the surface level.",e:"The documentary provides an in-depth analysis of the global food system."},
+    {w:"Shed light on",pos:"verb phrase",d:"To make something clearer or easier to understand; to illuminate a topic.",e:"This research sheds light on the psychological effects of social isolation."},
+    {w:"Play a role",pos:"verb phrase",d:"To have a part in causing or contributing to something.",e:"Diet and exercise both play a crucial role in preventing chronic disease."},
+    {w:"Make a case for",pos:"verb phrase",d:"To argue persuasively in support of a position or course of action.",e:"The author makes a compelling case for a universal basic income."},
+    {w:"Run counter to",pos:"verb phrase",d:"To be in direct opposition or contradiction to something.",e:"This evidence runs counter to the government's official position on migration."},
+    {w:"Stand to reason",pos:"verb phrase",d:"To be logical or obvious given the circumstances.",e:"It stands to reason that investing in education yields long-term economic returns."},
+    {w:"Set a precedent",pos:"verb phrase",d:"To establish a model or example for future cases or decisions.",e:"The landmark ruling set a legal precedent for environmental liability cases."},
+    {w:"Turn a blind eye",pos:"verb phrase",d:"To deliberately ignore something that is wrong or problematic.",e:"Critics claim that authorities have turned a blind eye to corporate tax evasion."}
+  ]
+};
+
+// ============================================================
+// FLASHCARD ENGINE
+// ============================================================
+const FC = (() => {
+  let deck=[], idx=0, flipped=false, stats={total:0,know:0,review:0};
+  const shuffle=arr=>[...arr].sort(()=>Math.random()-0.5);
+  function render(){
+    const c=deck[idx];
+    const card=document.getElementById('fc-card');
+    card.classList.remove('flipped'); flipped=false;
+    document.getElementById('fc-word').textContent=c.w;
+    document.getElementById('fc-pos').textContent=c.pos;
+    document.getElementById('fc-def').textContent=c.d;
+    document.getElementById('fc-ex').textContent='"'+c.e+'"';
+    document.getElementById('fc-prog').textContent='Card '+(idx+1)+' of '+deck.length;
+  }
+  function updateStats(){
+    document.getElementById('fc-stat-t').textContent=stats.total;
+    document.getElementById('fc-stat-k').textContent=stats.know;
+    document.getElementById('fc-stat-r').textContent=stats.review;
+  }
+  return {
+    setCategory(cat){
+      deck=shuffle(VOCAB[cat]); idx=0; stats={total:0,know:0,review:0};
+      updateStats(); render();
+    },
+    flip(){
+      flipped=!flipped;
+      document.getElementById('fc-card').classList.toggle('flipped',flipped);
+    },
+    next(){idx=(idx+1)%deck.length; render();},
+    mark(type){
+      stats.total++;
+      if(type==='know') stats.know++; else stats.review++;
+      updateStats(); this.next();
+    }
+  };
+})();
+FC.setCategory('academic');
+
+
+// ============================================================
+// TENSES DATA — 12 tenses
+// ============================================================
+const TENSES = [
+  {name:"Present Simple",badge:"badge-blue",short:"I work / She works",
+   formula:"+  Subject + base verb (+ s/es 3rd person)\n−  Subject + do/does + not + base verb\n?  Do/Does + subject + base verb?",
+   uses:["Habitual actions and routines","General truths and permanent facts","Fixed schedules and timetables","Instructions and directions"],
+   exc:["Add -es after sh/ch/x/o/ss: go→goes, watch→watches","Irregular: have→has, be→is/am/are","Stative verbs (know, want, love) rarely used in continuous"],
+   signals:["always","usually","often","every day","never","sometimes","on Mondays","in general"],
+   ex:[{p:"She works at a hospital every weekday.",n:"She doesn't work at the weekend.",q:"Does she work the night shift?"},
+       {p:"Water freezes at 0°C at sea level.",n:"Water doesn't freeze at 10°C.",q:"Does ice melt quickly in sunlight?"}]},
+  {name:"Present Continuous",badge:"badge-green",short:"I am working / She is working",
+   formula:"+  Subject + am/is/are + verb-ing\n−  Subject + am/is/are + not + verb-ing\n?  Am/Is/Are + subject + verb-ing?",
+   uses:["Actions happening right now, at this moment","Temporary situations (not permanent)","Future plans already arranged","Changing or developing trends"],
+   exc:["Stative verbs NOT used: know, like, love, want, need, understand","Spelling: run→running, make→making, lie→lying","Some verbs shift meaning: I think (opinion) vs I'm thinking (process)"],
+   signals:["now","right now","at the moment","currently","today","this week","Look!","Listen!"],
+   ex:[{p:"I am studying for my IELTS exam right now.",n:"I am not watching television.",q:"Are you studying English this semester?"},
+       {p:"The company is expanding into new markets.",n:"It isn't reducing its workforce.",q:"Is the situation improving?"}]},
+  {name:"Past Simple",badge:"badge-amber",short:"I worked / She went",
+   formula:"+  Subject + past form of verb (regular: +ed)\n−  Subject + did + not + base verb\n?  Did + subject + base verb?",
+   uses:["Completed actions at a specific time in the past","A sequence of past events","Past habits or states no longer true","Historical facts and narratives"],
+   exc:["Irregular verbs: go→went, buy→bought, see→saw, think→thought, write→wrote","Be is irregular: was (I/he/she/it), were (you/we/they)","Regular spelling: play→played, stop→stopped (double consonant), study→studied (y→i)"],
+   signals:["yesterday","last night/week/year","ago","in 2015","when I was young","once","at that time"],
+   ex:[{p:"She visited Tokyo last summer for two weeks.",n:"She didn't visit Osaka on that trip.",q:"Did she enjoy the experience?"},
+       {p:"Scientists discovered penicillin by accident in 1928.",n:"They didn't expect the result.",q:"Did Fleming share the discovery immediately?"}]},
+  {name:"Past Continuous",badge:"badge-amber",short:"I was working / They were studying",
+   formula:"+  Subject + was/were + verb-ing\n−  Subject + was/were + not + verb-ing\n?  Was/Were + subject + verb-ing?",
+   uses:["Action in progress at a specific past time","Background action interrupted by another event","Describing a scene or setting in a narrative","Two simultaneous past actions (while/as)"],
+   exc:["Often paired with Past Simple for interruption: I was reading when the phone rang","Stative verbs still avoided in continuous form","While/as/when signal the combination of past continuous and past simple"],
+   signals:["while","when","at 8pm yesterday","all afternoon","as","throughout"],
+   ex:[{p:"I was reading when the power went out suddenly.",n:"I wasn't sleeping when it happened.",q:"Was she working from home that day?"},
+       {p:"They were discussing the proposal when the CEO arrived.",n:"They weren't arguing about the budget.",q:"Were you listening during the whole meeting?"}]},
+  {name:"Present Perfect",badge:"badge-purple",short:"I have worked / She has gone",
+   formula:"+  Subject + have/has + past participle\n−  Subject + have/has + not + past participle\n?  Have/Has + subject + past participle?",
+   uses:["Actions with a result or relevance in the present","Life experiences (no specific time given)","Actions that started in the past and continue now","Recent events with present consequences"],
+   exc:["NEVER use with specific past time (yesterday, in 2010) → use Past Simple instead","Irregular participles: go→gone, write→written, see→seen, take→taken, break→broken","Common contractions: I've, you've, she's, he's, we've, they've, haven't, hasn't"],
+   signals:["ever","never","already","yet","just","since","for","recently","so far","this year","up to now"],
+   ex:[{p:"I have visited Japan twice in my life.",n:"I haven't been to South Korea yet.",q:"Have you ever tried traditional Japanese cuisine?"},
+       {p:"She has just submitted her final assignment.",n:"She hasn't received feedback yet.",q:"Has the professor reviewed it already?"}]},
+  {name:"Past Perfect",badge:"badge-purple",short:"I had worked / She had gone",
+   formula:"+  Subject + had + past participle\n−  Subject + had + not + past participle\n?  Had + subject + past participle?",
+   uses:["Action completed before another past action","Expressing the earlier of two past events","Reported speech and indirect discourse","Third conditional sentences"],
+   exc:["Always refers to a second past reference point; rarely used alone","Same irregular participles as Present Perfect","Contracted form: I'd, she'd, they'd (easily confused with would — check context)"],
+   signals:["before","after","already","by the time","when","as soon as","by 2005","once"],
+   ex:[{p:"She had already left by the time I arrived.",n:"He hadn't eaten anything before the meeting.",q:"Had you studied English before you moved abroad?"},
+       {p:"By 2015, the team had published over 30 research papers.",n:"They hadn't yet developed a working prototype.",q:"Had she met him before the conference began?"}]},
+  {name:"Present Perfect Continuous",badge:"badge-purple",short:"I have been working",
+   formula:"+  Subject + have/has + been + verb-ing\n−  Subject + have/has + not + been + verb-ing\n?  Have/Has + subject + been + verb-ing?",
+   uses:["Action that started in past and continues now (emphasis on duration)","Recent activity with a visible present result","Temporary situation that may be ongoing"],
+   exc:["Emphasises duration or continuity, unlike Present Perfect which emphasises completion","Stative verbs not used: NOT 'I have been knowing'","For/since still used: I have been studying for three hours"],
+   signals:["for","since","all day","lately","recently","how long","all morning"],
+   ex:[{p:"I have been studying for this exam for six weeks.",n:"I haven't been sleeping well lately.",q:"How long have you been learning English?"},
+       {p:"She has been working on the report all afternoon.",n:"He hasn't been feeling well since Monday.",q:"Have they been experiencing any technical issues?"}]},
+  {name:"Past Perfect Continuous",badge:"badge-amber",short:"I had been working",
+   formula:"+  Subject + had + been + verb-ing\n−  Subject + had + not + been + verb-ing\n?  Had + subject + been + verb-ing?",
+   uses:["Duration of an action before a past event","Shows cause of a past situation or state","Emphasises ongoing nature of a past activity"],
+   exc:["Less common than other perfect forms; used mainly in formal/written English","Stative verbs not used in continuous form","Often explains WHY something had happened: He was tired because he had been working all night"],
+   signals:["for","since","all day","before","when","by the time"],
+   ex:[{p:"She had been working on the novel for three years before it was published.",n:"He hadn't been exercising regularly before the diagnosis.",q:"How long had they been negotiating before they reached a deal?"},
+       {p:"The engine failed because it had been overheating for hours.",n:"The system hadn't been running correctly for days.",q:"Had you been experiencing symptoms before you saw the doctor?"}]},
+  {name:"Future Simple (will)",badge:"badge-green",short:"I will work / She will go",
+   formula:"+  Subject + will + base verb\n−  Subject + will + not (won't) + base verb\n?  Will + subject + base verb?",
+   uses:["Spontaneous decisions made at the moment of speaking","Predictions based on opinion (no evidence)","Promises, offers, threats and requests","Facts about the future"],
+   exc:["Will is a modal verb — never add -s (NOT wills)","Contractions: I'll, you'll, she'll, won't (will not)","Do NOT use for pre-planned events → use going to or Present Continuous"],
+   signals:["tomorrow","next year","in the future","soon","I think","I believe","I promise","I'm sure","probably"],
+   ex:[{p:"I will call you as soon as I have the results.",n:"I won't forget — I promise.",q:"Will you help me prepare for the speaking test?"},
+       {p:"Experts predict that renewable energy will supply 50% of global needs by 2035.",n:"Coal will not remain a viable energy source.",q:"Will automation significantly reduce employment levels?"}]},
+  {name:"Future with Going To",badge:"badge-green",short:"I am going to work",
+   formula:"+  Subject + am/is/are + going to + base verb\n−  Subject + am/is/are + not + going to + base verb\n?  Am/Is/Are + subject + going to + base verb?",
+   uses:["Plans and intentions already decided before speaking","Predictions based on present evidence","Arrangements for the near future"],
+   exc:["NOT interchangeable with 'will' for spontaneous decisions","In spoken English, 'going to' is often reduced to 'gonna' (informal only)","For fixed appointments with a specific time, use Present Continuous: I'm meeting her at 3."],
+   signals:["next week","this summer","tonight","soon","Look! (evidence)","I can see that...","I've decided to"],
+   ex:[{p:"She is going to study medicine at university.",n:"She isn't going to pursue a business career.",q:"Are you going to take the IELTS exam next month?"},
+       {p:"Look at those dark clouds — it is going to rain soon.",n:"It isn't going to be a pleasant afternoon.",q:"Is he going to move to another country?"}]},
+  {name:"Future Continuous",badge:"badge-green",short:"I will be working",
+   formula:"+  Subject + will + be + verb-ing\n−  Subject + will + not + be + verb-ing\n?  Will + subject + be + verb-ing?",
+   uses:["Action that will be in progress at a specific future time","Polite questions about someone's plans","Referring to expected or routine future events"],
+   exc:["Less common in everyday speech; more formal/written register","Stative verbs generally avoided in continuous form","Sometimes used for polite indirect requests: Will you be needing the car tonight?"],
+   signals:["at this time tomorrow","next Monday at 9am","by then","still","in two hours"],
+   ex:[{p:"This time tomorrow I will be sitting my IELTS exam.",n:"I won't be sleeping — I'll be far too nervous.",q:"Will you be attending the conference next Friday?"},
+       {p:"In 2050, scientists will be working on advanced carbon capture technologies.",n:"They won't be relying on fossil fuels.",q:"Will she still be working at the company in five years?"}]},
+  {name:"Future Perfect",badge:"badge-purple",short:"I will have worked",
+   formula:"+  Subject + will + have + past participle\n−  Subject + will + not + have + past participle\n?  Will + subject + have + past participle?",
+   uses:["Action that will be completed before a specific future time","Looking back from a future point at what will have been achieved","Expressing certainty about a future completed action"],
+   exc:["Always linked to a future deadline or reference point (by 2030, by the time…)","Often confused with Future Simple — Future Perfect specifies completion before a future moment","Same irregular past participles apply"],
+   signals:["by then","by 2030","by the time","before","already (future)","within five years"],
+   ex:[{p:"By the end of this year, she will have completed her dissertation.",n:"He won't have finished the project by the deadline.",q:"Will you have passed your driving test by June?"},
+       {p:"By 2050, global temperatures will have risen by more than 2°C.",n:"Scientists hope emissions will not have exceeded safe limits.",q:"Will renewable energy have replaced coal entirely by then?"}]}
+];
+
+function buildTenses(){
+  const list=document.getElementById('tense-list');
+  TENSES.forEach(t=>{
+    const item=document.createElement('div');
+    item.className='tense-item';
+    const exRows=t.ex.map(e=>`
+      <tr><td class="ex-lbl">+</td><td class="ex-plus">${e.p}</td></tr>
+      <tr><td class="ex-lbl">−</td><td class="ex-minus">${e.n}</td></tr>
+      <tr><td class="ex-lbl">?</td><td class="ex-q">${e.q}</td></tr>
+    `).join('');
+    item.innerHTML=`
+      <div class="tense-hdr" onclick="this.parentElement.classList.toggle('open')">
+        <div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span class="tense-name">${t.name}</span>
+            <span class="badge ${t.badge}">${t.badge.includes('blue')?'Present':t.badge.includes('amber')?'Past':t.badge.includes('green')?'Future':'Perfect'}</span>
+          </div>
+          <div class="tense-form">${t.short}</div>
+        </div>
+        <span class="tense-chevron">▶</span>
+      </div>
+      <div class="tense-body">
+        <div class="tgrid">
+          <div><h4>Structure</h4><div class="formula">${t.formula.replace(/\n/g,'<br>')}</div></div>
+          <div><h4>When to use</h4><ul class="use-list">${t.uses.map(u=>'<li>'+u+'</li>').join('')}</ul></div>
+        </div>
+        <div class="tgrid" style="margin-top:1rem">
+          <div><h4>Exceptions &amp; notes</h4><ul class="exc-list">${t.exc.map(e=>'<li>'+e+'</li>').join('')}</ul></div>
+          <div><h4>Signal words</h4><div class="signals">${t.signals.map(s=>'<span class="signal">'+s+'</span>').join('')}</div></div>
+        </div>
+        <div style="margin-top:1rem"><h4 style="font-size:11px;font-weight:600;color:var(--text3);letter-spacing:0.8px;text-transform:uppercase;margin-bottom:6px">Examples</h4>
+        <table class="ex-table">${exRows}</table></div>
+      </div>`;
+    list.appendChild(item);
+  });
+}
+buildTenses();
+
+
+// ============================================================
+// READING — SINGLE PASSAGE (4 passages)
+// ============================================================
+const PASSAGES = [
+  {title:"The future of remote work",type:"Academic Reading — Passage 1",
+   body:`<p>The widespread adoption of remote work, accelerated by the global pandemic of 2020, has fundamentally transformed the way organisations operate. What was once considered a rare privilege has become a standard expectation for millions of knowledge workers worldwide. Companies that initially resisted flexible arrangements have been forced to reconsider their positions as evidence mounts that productivity does not necessarily suffer when employees work from home.</p>
+<p>Research conducted by Stanford University found that remote workers were 13% more productive than their office-based counterparts, largely due to fewer interruptions and reduced commuting fatigue. Furthermore, organisations reported significant cost savings related to office space, utilities, and facilities management. These financial incentives have encouraged even traditionally conservative industries to explore hybrid models.</p>
+<p>However, critics argue that remote work presents considerable challenges to collaboration and company culture. Junior employees, in particular, may miss out on informal mentoring opportunities that occur naturally in shared physical spaces. The boundary between professional and personal life can become blurred, leading to longer working hours and increased risk of burnout. A 2022 study by Microsoft revealed that remote workers send 45% more messages after standard working hours compared to office-based employees.</p>
+<p>Governments and urban planners are also grappling with the consequences of this shift. City centres that once relied on daily commuter traffic have experienced significant declines in footfall, affecting local businesses such as restaurants, coffee shops, and retail stores. Meanwhile, suburban and rural areas have witnessed population growth as workers seek larger homes and outdoor space, no longer constrained by proximity to urban offices.</p>
+<p>Despite these challenges, the consensus among labour economists is that remote and hybrid work arrangements are here to stay. The key question is no longer whether remote work is viable, but how organisations can manage it equitably and sustainably for all employees, regardless of their role or seniority.</p>`,
+   qs:[
+     {type:"mcq",q:"According to the Stanford research, what was the main reason remote workers showed higher productivity?",opts:["Better technology tools at home","Fewer interruptions and less commuting fatigue","Greater motivation due to flexible hours","More direct supervision from managers"],ans:1},
+     {type:"mcq",q:"Which group of employees is described as being most negatively affected by remote work arrangements?",opts:["Senior executives","IT professionals","Junior employees","Part-time contractors"],ans:2},
+     {type:"tf",q:"The passage states that all companies welcomed remote work arrangements immediately after 2020.",opts:["True","False","Not Given"],ans:1},
+     {type:"tf",q:"According to the Microsoft study, remote workers send significantly more messages outside standard working hours.",opts:["True","False","Not Given"],ans:0},
+     {type:"mcq",q:"What effect has the shift to remote work had on suburban and rural areas, according to the passage?",opts:["A decline in property values","Reduced demand for public transport","Population growth as workers relocate","An increase in local unemployment rates"],ans:2},
+     {type:"tf",q:"Labour economists believe remote work will eventually be replaced entirely by a return to office-based work.",opts:["True","False","Not Given"],ans:1}
+   ]},
+  {title:"Coral reef ecosystems under threat",type:"Academic Reading — Passage 2",
+   body:`<p>Coral reefs are among the most biologically diverse ecosystems on the planet, occupying less than one percent of the ocean floor yet supporting approximately 25% of all marine species. Often referred to as the "rainforests of the sea," these complex structures are built over thousands of years by tiny marine animals called polyps, which secrete calcium carbonate to form hard skeletons that accumulate into the vast reef structures visible today.</p>
+<p>The primary threat facing coral reefs globally is ocean warming caused by climate change. When water temperatures rise even slightly above normal seasonal levels, coral polyps expel the symbiotic algae — known as zooxanthellae — that live within their tissues. This process, called coral bleaching, deprives the coral of up to 90% of its energy supply. If elevated temperatures persist for extended periods, bleached coral will die. Mass bleaching events have become increasingly frequent, with the Great Barrier Reef experiencing four major bleaching events between 2016 and 2022.</p>
+<p>Ocean acidification presents an equally serious threat. As the oceans absorb excess carbon dioxide from the atmosphere, the resulting chemical reactions lower the pH of seawater. This makes it increasingly difficult for corals and other shell-forming organisms to produce calcium carbonate, effectively weakening their structural foundations. Scientists predict that if current emission trends continue unchecked, ocean acidity could increase by 150% by the end of this century.</p>
+<p>Local threats compound these global pressures. Overfishing disrupts the ecological balance of reef communities by removing herbivorous species that help control algae growth. Agricultural and industrial runoff introduces excess nutrients and pollutants into coastal waters, promoting algal blooms that can smother entire reef structures. Physical damage from unregulated tourism, including anchor drops and direct contact by snorkellers and divers, causes destruction that can take decades to recover from.</p>
+<p>Conservation efforts have shown mixed results. Marine protected areas, when properly enforced, have demonstrated measurable benefits for reef recovery and biodiversity. Community-led reef restoration projects, involving the cultivation and transplantation of coral fragments, offer promising local solutions. However, experts consistently emphasise that without addressing the root cause — greenhouse gas emissions — such measures can only delay, not prevent, the continued decline of reef systems worldwide.</p>`,
+   qs:[
+     {type:"mcq",q:"What percentage of all marine species do coral reefs support, according to the passage?",opts:["Less than 1%","Around 10%","Approximately 25%","Over 50%"],ans:2},
+     {type:"tf",q:"Coral bleaching occurs when coral polyps absorb an excessive amount of zooxanthellae into their tissues.",opts:["True","False","Not Given"],ans:1},
+     {type:"mcq",q:"According to the passage, what does ocean acidification primarily make more difficult for corals?",opts:["Reproduction of coral polyp colonies","Production of calcium carbonate","Migration to cooler water zones","Growth of symbiotic algae"],ans:1},
+     {type:"tf",q:"The passage states that marine protected areas have never produced any measurable improvement in reef health.",opts:["True","False","Not Given"],ans:1},
+     {type:"mcq",q:"What do experts identify as the fundamental root cause of coral reef decline globally?",opts:["Overfishing of reef species","Damage caused by tourism","Greenhouse gas emissions","Agricultural chemical runoff"],ans:2},
+     {type:"tf",q:"The Great Barrier Reef experienced exactly two bleaching events between 2016 and 2022.",opts:["True","False","Not Given"],ans:1}
+   ]},
+  {title:"Artificial intelligence in modern medicine",type:"Academic Reading — Passage 3",
+   body:`<p>Artificial intelligence is increasingly being integrated into medical practice, promising to transform the diagnosis, treatment and management of a wide range of conditions. Machine learning algorithms trained on vast datasets of medical images can now detect certain cancers, diabetic retinopathy and cardiovascular abnormalities with accuracy comparable to — and in some cases exceeding — that of experienced clinicians. This has generated both excitement and significant debate within the medical community.</p>
+<p>One of the most celebrated applications of AI in medicine is diagnostic imaging. A 2020 study published in Nature Medicine demonstrated that a deep learning system could identify breast cancer in mammograms with greater accuracy than an average radiologist, and with a substantially lower false positive rate. Proponents argue that such tools will allow clinicians to focus their expertise on complex cases while routine screening is handled more efficiently by automated systems.</p>
+<p>Despite these promising developments, significant challenges remain before AI can be widely deployed in clinical settings. Many AI systems are trained on datasets that lack diversity, meaning their performance may be less reliable for patients from underrepresented ethnic groups or geographical regions. Furthermore, the so-called "black box" problem — the difficulty of explaining how an AI system reached a particular conclusion — raises serious concerns about accountability and transparency in medical decision-making.</p>
+<p>Patient privacy is another major concern. Training high-performance AI models requires access to enormous quantities of patient data, raising fundamental questions about consent, data security and the commercial use of sensitive health information. Several high-profile incidents involving healthcare providers sharing patient data with technology companies without adequate disclosure have intensified public scrutiny of these partnerships.</p>
+<p>Regulatory frameworks have struggled to keep pace with the rapid advancement of medical AI. Traditional approval processes designed for pharmaceutical drugs and conventional medical devices are not always well-suited to adaptive AI systems that continue to learn and change over time. Nevertheless, there is broad consensus among policymakers, clinicians and technologists that the potential benefits of AI in medicine are too significant to ignore, and that the priority must be developing robust governance mechanisms rather than restricting innovation.</p>`,
+   qs:[
+     {type:"mcq",q:"According to the passage, what was a key finding of the 2020 Nature Medicine study on AI and mammography?",opts:["AI was slower than radiologists but more accurate","AI identified breast cancer with greater accuracy and fewer false positives","AI required more data than was practically available","AI performed best on high-risk patient groups only"],ans:1},
+     {type:"tf",q:"The passage suggests that AI diagnostic tools will entirely replace the role of experienced clinicians in future healthcare.",opts:["True","False","Not Given"],ans:1},
+     {type:"mcq",q:"What does the passage identify as the 'black box' problem in medical AI?",opts:["The difficulty of storing large medical datasets securely","The inability of AI systems to process colour images","The challenge of explaining how an AI system reached its conclusion","The high cost of developing and deploying AI medical tools"],ans:2},
+     {type:"tf",q:"The passage states that some healthcare providers have shared patient data with technology companies without adequate disclosure.",opts:["True","False","Not Given"],ans:0},
+     {type:"mcq",q:"According to the passage, what is the main reason traditional regulatory frameworks are poorly suited to medical AI?",opts:["They were designed only for pharmaceutical companies","They are too expensive for technology firms to comply with","They are not designed for systems that continue to learn and change","They require approval from multiple international bodies"],ans:2},
+     {type:"tf",q:"Policymakers and clinicians agree that innovation in medical AI should be stopped until regulations are established.",opts:["True","False","Not Given"],ans:1}
+   ]},
+  {title:"The psychology of habit formation",type:"Academic Reading — Passage 4",
+   body:`<p>Habits are the brain's way of conserving energy. When a behaviour is repeated consistently in a similar context, the neural pathways associated with that behaviour become increasingly efficient, allowing it to be performed with little conscious attention. This neurological process, known as automaticity, is central to understanding why habits — both beneficial and harmful — can be so persistent and difficult to change.</p>
+<p>The most widely cited model of habit structure is the "habit loop," a concept popularised by journalist Charles Duhigg in his 2012 book The Power of Habit. The loop consists of three components: a cue (a trigger that initiates the behaviour), a routine (the behaviour itself), and a reward (the positive reinforcement that makes the brain encode the routine as worth remembering). According to this framework, the most effective way to change an unwanted habit is not to eliminate it entirely, but to replace the routine while keeping the original cue and reward structure intact.</p>
+<p>Research in behavioural psychology has refined our understanding of how long habit formation actually takes. A landmark 2010 study by Phillippa Lally and colleagues at University College London found that, on average, it took 66 days for a new behaviour to become automatic — far longer than the popular claim of 21 days. Importantly, the researchers also found that missing a single day of practice did not significantly impede the formation process, suggesting that consistency over time matters more than perfect adherence.</p>
+<p>Environmental design has emerged as a particularly powerful tool for behaviour change. Studies consistently show that people are more likely to maintain healthy habits — such as regular exercise, nutritious eating or adequate sleep — when their environment is structured to make those behaviours the easiest and most convenient option. This approach, sometimes called "choice architecture," has been adopted by governments and organisations seeking to promote public health without resorting to prohibitions or financial penalties.</p>
+<p>Despite decades of research, habit change remains challenging for most individuals. Self-control resources are finite and subject to depletion — a phenomenon known as ego depletion — meaning that people who exert significant willpower in one area of their life may find they have less available for other decisions. This insight has shifted the focus of behaviour change research from individual motivation towards systemic and environmental interventions that reduce the need for ongoing willpower altogether.</p>`,
+   qs:[
+     {type:"mcq",q:"According to the passage, what is the main neurological reason habits become persistent over time?",opts:["The brain releases dopamine each time a habit is performed","Neural pathways become more efficient through repetition","The prefrontal cortex stores habitual memories permanently","Habits require more energy to perform than deliberate actions"],ans:1},
+     {type:"tf",q:"The passage states that the most effective way to change a habit is to completely eliminate the cue that triggers it.",opts:["True","False","Not Given"],ans:1},
+     {type:"mcq",q:"What did the 2010 UCL study find about missing a single day of practice during habit formation?",opts:["It significantly set back the entire formation process","It had no measurable effect on eventual automaticity","It doubled the time needed for the habit to form","It only affected physical habits, not mental ones"],ans:1},
+     {type:"tf",q:"The passage indicates that 'choice architecture' involves imposing financial penalties to encourage healthy behaviour.",opts:["True","False","Not Given"],ans:1},
+     {type:"mcq",q:"What does the concept of 'ego depletion' refer to in the context of the passage?",opts:["A loss of personal identity caused by habit repetition","The tendency to develop negative habits under stress","The limited and depletable nature of self-control resources","The brain's resistance to forming new neural pathways"],ans:2},
+     {type:"tf",q:"The UCL study confirmed the popular belief that habits form within exactly 21 days of consistent practice.",opts:["True","False","Not Given"],ans:1}
+   ]}
+  ,{title:"The economics of happiness",type:"Academic Reading — Passage 5",
+   body:`<p>For much of the twentieth century, economic growth was treated as the primary indicator of a nation's success. Gross domestic product — the total monetary value of goods and services produced within a country — became the default measure by which governments, international organisations and the public evaluated social progress. Yet a growing body of research in economics and psychology has challenged this assumption, arguing that beyond a certain income threshold, additional wealth contributes surprisingly little to subjective wellbeing.</p>
+<p>The concept now widely known as the Easterlin Paradox, first proposed by economist Richard Easterlin in 1974, describes the finding that within a given country, wealthier individuals tend to report higher levels of happiness than their poorer counterparts. However, as a nation's average income rises over time, average happiness levels do not increase proportionally. Easterlin attributed this paradox to the role of relative income — people's satisfaction depends not on their absolute wealth, but on how their financial position compares to those around them.</p>
+<p>Subsequent researchers have refined and in some cases challenged Easterlin's conclusions. A landmark 2010 study by Princeton economists Daniel Kahneman and Angus Deaton found that emotional wellbeing in the United States rose with income up to an annual threshold of approximately $75,000, beyond which additional income had little impact on day-to-day emotional experience, though it continued to improve people's overall life evaluation. More recent research using global datasets has suggested that the relationship between income and happiness may be more linear than previously thought, though debate continues.</p>
+<p>Several countries have begun incorporating wellbeing metrics into official government reporting alongside traditional economic indicators. Bhutan famously adopted Gross National Happiness as a policy framework as early as the 1970s, while New Zealand introduced a Wellbeing Budget in 2019 that explicitly directed public spending towards improving social outcomes such as mental health, child poverty and environmental sustainability. Proponents argue that this shift represents a more honest accounting of what citizens actually value.</p>
+<p>Critics, however, caution that happiness is notoriously difficult to measure objectively, and that self-reported wellbeing data is subject to cultural, linguistic and methodological biases that make cross-national comparisons unreliable. They argue that economic growth, for all its limitations as a measure, remains a more practical and comparable metric for guiding policy. The debate reflects a deeper philosophical question about the purpose of economic activity and what governments ultimately owe their citizens.</p>`,
+   qs:[
+     {type:"mcq",q:"What does the Easterlin Paradox specifically describe?",opts:["The finding that economic growth always improves national wellbeing","The observation that wealthier nations are always happier than poorer ones","The pattern whereby rising national income does not proportionally increase average happiness","The idea that happiness declines sharply after a peak income level"],ans:2},
+     {type:"tf",q:"The passage states that the Easterlin Paradox suggests people's satisfaction depends primarily on their absolute level of wealth.",opts:["True","False","Not Given"],ans:1},
+     {type:"mcq",q:"What did the Kahneman and Deaton study find about income beyond $75,000 per year?",opts:["It strongly improved both emotional wellbeing and life evaluation","It had little effect on day-to-day emotional experience but still improved life evaluation","It had no effect on any measure of happiness or wellbeing","It led to declining emotional wellbeing in most cases"],ans:1},
+     {type:"tf",q:"New Zealand's Wellbeing Budget was introduced before Bhutan adopted its Gross National Happiness framework.",opts:["True","False","Not Given"],ans:1},
+     {type:"mcq",q:"What is the main criticism of using happiness as a policy metric, according to the passage?",opts:["It is too expensive to measure at national scale","It ignores the needs of the poorest members of society","Self-reported wellbeing data is unreliable and difficult to compare across nations","Most citizens do not want governments to prioritise happiness"],ans:2},
+     {type:"tf",q:"The passage states that recent research has definitively resolved the debate about whether income and happiness are linearly related.",opts:["True","False","Not Given"],ans:2},
+     {type:"mcq",q:"Why did GDP become the default measure of national success, according to the passage?",opts:["It was mandated by international organisations after World War II","It measured the total monetary value of goods and services produced","All governments agreed it was the fairest measure available","It was the only measure that could be calculated reliably"],ans:1},
+     {type:"tf",q:"The passage implies that the debate between GDP and wellbeing metrics reflects a broader philosophical question about the goals of economic activity.",opts:["True","False","Not Given"],ans:0}
+   ]}
+  ,{title:"Ocean plastic pollution",type:"Academic Reading — Passage 6",
+   body:`<p>Since the mass production of plastics began in the 1950s, approximately 8.3 billion tonnes of plastic have been manufactured globally. Of this total, around 6.3 billion tonnes have become waste, with only 9% having been recycled and 12% incinerated. The remainder — roughly 79% — has accumulated in landfills or the natural environment. The oceans have absorbed a disproportionate share of this waste, and the consequences for marine ecosystems are increasingly well-documented.</p>
+<p>Plastics in the ocean do not biodegrade in the conventional sense. Instead, they fragment into progressively smaller pieces through the action of ultraviolet radiation and wave action, eventually forming particles smaller than five millimetres known as microplastics. These particles have now been detected in virtually every marine environment on earth, from the surface of the open ocean to the deepest ocean trenches, and have entered marine food chains at every level. Research has shown that microplastics can cause physical blockages, inflammatory responses and reproductive disruption in a wide range of marine species.</p>
+<p>The problem is compounded by the chemical properties of plastic particles. In the ocean environment, plastics act as concentrators of persistent organic pollutants — toxic chemicals such as PCBs and flame retardants that bind to plastic fragments. When marine organisms ingest these contaminated particles, the pollutants can be transferred into their tissues, accumulating up the food chain in a process known as biomagnification. Studies have detected microplastics and associated contaminants in fish, seabirds, marine mammals and in seafood consumed by humans.</p>
+<p>Addressing the problem has proved politically and logistically complex. Plastic production is deeply embedded in global supply chains, and the industry generates significant economic value and employment. International agreements on marine plastic pollution have been slow to materialise; a global plastics treaty has been under negotiation since 2022, though significant disagreements remain between nations that prioritise production limits and those that prefer to focus on waste management. Meanwhile, cleanup technologies have demonstrated limited effectiveness against dispersed microplastics.</p>
+<p>Many researchers argue that technological solutions to ocean plastic pollution cannot substitute for upstream reductions in plastic production itself. They contend that a fundamental rethinking of how products are designed, used and disposed of — including a much greater emphasis on genuinely reusable and recyclable materials — is the only approach capable of meaningfully reducing the flow of plastic into marine environments over the long term.</p>`,
+   qs:[
+     {type:"mcq",q:"What percentage of all plastic ever produced has ended up in landfills or the natural environment?",opts:["9%","12%","79%","91%"],ans:2},
+     {type:"tf",q:"The passage states that plastics in the ocean fully break down and biodegrade over time.",opts:["True","False","Not Given"],ans:1},
+     {type:"mcq",q:"What is biomagnification, as described in the passage?",opts:["The process by which microplastics are created from larger plastic fragments","The accumulation of toxic substances at higher concentrations in higher levels of the food chain","The detection of microplastics in deep ocean trenches","The absorption of ultraviolet radiation by ocean plastics"],ans:1},
+     {type:"tf",q:"The passage states that microplastics have been found in food consumed by humans.",opts:["True","False","Not Given"],ans:0},
+     {type:"mcq",q:"Why has addressing ocean plastic pollution proved politically difficult?",opts:["There is no scientific consensus on how harmful plastic pollution is","Plastic production is economically significant and international agreements have been slow to form","Most pollution comes from countries that refuse to participate in global talks","Ocean cleanup technologies have already solved the problem of larger debris"],ans:1},
+     {type:"tf",q:"The passage suggests that ocean collection systems have been highly effective at removing microplastics.",opts:["True","False","Not Given"],ans:1},
+     {type:"mcq",q:"What do researchers argue is the only long-term solution to reduce ocean plastic pollution?",opts:["Deploying more advanced ocean cleanup technology","Improving international waste management agreements","Reducing plastic production and redesigning products for reuse and recyclability","Educating consumers about the importance of recycling"],ans:2},
+     {type:"tf",q:"A global plastics treaty had been finalised and ratified by all major nations by 2022.",opts:["True","False","Not Given"],ans:1}
+   ]}
+  ,{title:"The science of sleep",type:"Academic Reading — Passage 7",
+   body:`<p>Sleep is one of the most fundamental biological imperatives, yet it remains among the least understood. For decades, sleep was considered a passive state — a period of rest during which the brain essentially switched off. Modern neuroscience has overturned this view entirely. Far from being inactive, the sleeping brain engages in a complex and highly organised sequence of processes that are essential for physical restoration, memory consolidation, immune function and emotional regulation.</p>
+<p>Human sleep is organised into cycles of approximately 90 minutes, each containing distinct stages characterised by different patterns of brain activity. The earlier stages involve lighter sleep, during which the brain gradually slows its activity. This progresses into deep slow-wave sleep, in which the body undertakes most of its physical repair processes, including the release of growth hormone and the clearance of metabolic waste from brain tissue via the glymphatic system. The final stage — rapid eye movement, or REM, sleep — is associated with vivid dreaming and plays a critical role in emotional processing and memory consolidation.</p>
+<p>The consequences of insufficient sleep are extensive and well-documented. Chronic sleep deprivation — defined as consistently sleeping fewer than seven hours per night — is associated with significantly elevated risks of cardiovascular disease, type 2 diabetes, obesity and depression. Cognitive effects include impaired attention, reduced working memory, slower reaction times and diminished capacity for complex problem-solving. Notably, research suggests that people who are chronically sleep-deprived significantly underestimate their own level of impairment.</p>
+<p>Modern industrialised societies create conditions that systematically undermine sleep quality. Artificial light, particularly the blue-wavelength light emitted by smartphones and computer screens, suppresses melatonin production and delays the onset of sleep. Irregular work schedules and the cultural valorisation of productivity over rest compound the problem. Adolescents are particularly vulnerable, as their circadian rhythms naturally shift towards later sleep and wake times during puberty, placing them in conflict with early school start times.</p>
+<p>Public health researchers have called for systemic responses to what some describe as a sleep deprivation epidemic, including later school start times, workplace policies that discourage after-hours communication, and public awareness campaigns. While individual interventions such as maintaining consistent sleep schedules and limiting screen exposure remain valuable, experts argue that individual willpower alone is insufficient to overcome the structural forces that erode sleep in modern societies.</p>`,
+   qs:[
+     {type:"mcq",q:"What has modern neuroscience shown about the sleeping brain?",opts:["It switches off and rests completely during sleep","It engages in complex processes essential for health and function","It is less active during REM sleep than during slow-wave sleep","It requires fewer than six hours to complete its restorative functions"],ans:1},
+     {type:"tf",q:"The passage states that the glymphatic system clears metabolic waste from brain tissue during sleep.",opts:["True","False","Not Given"],ans:0},
+     {type:"mcq",q:"What is described as a notable finding about chronically sleep-deprived people?",opts:["They sleep more deeply when they do sleep","They consistently overestimate how well they are coping","They are often unaware of how impaired they actually are","They recover cognitive function quickly after one good night's sleep"],ans:2},
+     {type:"tf",q:"The passage states that blue-wavelength light increases melatonin production and improves sleep onset.",opts:["True","False","Not Given"],ans:1},
+     {type:"mcq",q:"Why are adolescents particularly vulnerable to sleep problems in modern societies?",opts:["They spend more time on screens than any other age group","Their natural circadian rhythms conflict with early school start times","They are less aware of the importance of sleep than adults","They produce less melatonin than adults"],ans:1},
+     {type:"tf",q:"The passage implies that individual sleep hygiene practices are sufficient to overcome structural causes of poor sleep.",opts:["True","False","Not Given"],ans:1},
+     {type:"mcq",q:"Which of the following is NOT mentioned as a consequence of chronic sleep deprivation?",opts:["Increased risk of cardiovascular disease","Impaired working memory","Reduced creativity and artistic ability","Slower reaction times"],ans:2},
+     {type:"tf",q:"The passage states that sleep cycles last approximately 90 minutes and contain distinct stages.",opts:["True","False","Not Given"],ans:0}
+   ]}
+  ,{title:"The gig economy: flexibility or precarity?",type:"Academic Reading — Passage 8",
+   body:`<p>The rise of platform-based work — often called the gig economy — represents one of the most significant shifts in labour markets over the past two decades. Digital platforms connecting workers to customers for short-term, task-based engagements have grown from a marginal phenomenon to a major economic force, encompassing ride-hailing, food delivery, freelance professional services and a vast range of micro-tasks completed remotely. Proponents frame this transformation as a democratisation of work; critics describe it as the erosion of hard-won labour protections.</p>
+<p>Supporters of the gig economy point to its genuine advantages for certain categories of workers. Flexibility is the most frequently cited benefit — the ability to set one's own hours, work from any location and take on as much or as little work as circumstances allow. For students, caregivers, semi-retired individuals and those with health conditions that make conventional employment difficult, platform work can provide valuable income streams that traditional employment structures would not accommodate. Surveys consistently show that a substantial proportion of gig workers report satisfaction with the flexibility their arrangements offer.</p>
+<p>However, critics argue that the flexibility narrative obscures a more troubling reality. The classification of platform workers as independent contractors rather than employees exempts companies from providing benefits including sick pay, holiday entitlement, pension contributions and protection from unfair dismissal. Income in the gig economy is typically irregular and unpredictable, making financial planning difficult. Moreover, algorithmic management — the use of automated systems to assign work, monitor performance and impose penalties — can create conditions that are simultaneously highly controlled yet entirely lacking in conventional employment protections.</p>
+<p>Legal systems in many countries have struggled to keep pace with these developments. Landmark court rulings in the United Kingdom, France and the Netherlands have found in favour of reclassifying certain platform workers as employees entitled to basic protections, while other jurisdictions have resisted this approach. The challenge for regulators is to create frameworks that preserve genuine flexibility — which many workers value — while ensuring that platform companies cannot systematically avoid their responsibilities to the workforce.</p>
+<p>The broader economic implications of gig work's expansion remain contested. Some economists argue that the shift has suppressed wage growth in affected sectors and contributed to growing income inequality. Others contend that gig platforms have created new economic activity and opportunities that would not otherwise exist. What is clear is that the gig economy has fundamentally disrupted traditional models of work, and that societies have yet to develop the institutional frameworks needed to manage this disruption equitably.</p>`,
+   qs:[
+     {type:"mcq",q:"What is the most frequently cited advantage of gig economy work, according to the passage?",opts:["Higher average earnings than traditional employment","Greater flexibility in working hours and location","Access to better technology and digital tools","Freedom from any management oversight"],ans:1},
+     {type:"tf",q:"The passage states that all gig workers report high levels of satisfaction with their working arrangements.",opts:["True","False","Not Given"],ans:1},
+     {type:"mcq",q:"What does contractor classification exempt companies from providing, according to the passage?",opts:["Corporate tax payments in the country of operation","Benefits such as sick pay, holiday entitlement and pension contributions","Any form of performance monitoring or evaluation","Access to digital platforms and technology"],ans:1},
+     {type:"tf",q:"Courts in the UK, France and the Netherlands have all ruled in favour of extending protections to some platform workers.",opts:["True","False","Not Given"],ans:0},
+     {type:"mcq",q:"What does 'algorithmic management' refer to in the passage?",opts:["Artificial intelligence that replaces human managers entirely","Automated systems that assign work, monitor performance and impose penalties","Digital platforms that connect gig workers to customers","Software that helps workers manage their own schedules"],ans:1},
+     {type:"tf",q:"The passage concludes that the gig economy has been unambiguously beneficial for workers and the economy.",opts:["True","False","Not Given"],ans:1},
+     {type:"mcq",q:"What challenge do regulators face, according to the passage?",opts:["Convincing workers to accept employee status","Creating frameworks that preserve flexibility while ensuring basic protections","Persuading companies to reduce algorithmic management","Designing tax systems to capture gig income"],ans:1},
+     {type:"tf",q:"The passage implies that societies have successfully developed institutional frameworks to manage gig economy disruption equitably.",opts:["True","False","Not Given"],ans:1}
+   ]}
+];
+
+const RS = (() => {
+  let answers={}, checked=false, pidx=0;
+  function render(){
+    const p=PASSAGES[pidx]; answers={}; checked=false;
+    document.getElementById('rs-type').textContent=p.type;
+    document.getElementById('rs-title').textContent=p.title;
+    document.getElementById('rs-body').innerHTML=p.body;
+    document.getElementById('rs-score').style.display='none';
+    const c=document.getElementById('rs-questions'); c.innerHTML='';
+    p.qs.forEach((q,qi)=>{
+      const block=document.createElement('div');
+      block.className='q-block';
+      let opts='';
+      if(q.type==='mcq'){
+        opts='<div class="options">'+q.opts.map((o,oi)=>
+          `<div class="opt" id="rsq-${qi}-${oi}" onclick="RS.pick(${qi},${oi},'mcq')"><span class="opt-ltr">${String.fromCharCode(65+oi)}</span>${o}</div>`
+        ).join('')+'</div>';
+      } else {
+        opts='<div class="tf-row">'+q.opts.map((o,oi)=>
+          `<button class="tf-btn" id="rsq-${qi}-${oi}" onclick="RS.pick(${qi},${oi},'tf')">${o}</button>`
+        ).join('')+'</div>';
+      }
+      block.innerHTML=`<div class="q-num">Question ${qi+1}</div><div class="q-text">${q.q}</div>${opts}<div class="feedback" id="rsfb-${qi}" style="display:none"></div>`;
+      c.appendChild(block);
+    });
+  }
+  return {
+    load(i){pidx=parseInt(i); render();},
+    pick(qi,oi,type){
+      if(checked) return;
+      if(answers[qi]!==undefined) document.getElementById(`rsq-${qi}-${answers[qi]}`)?.classList.remove('selected');
+      answers[qi]=oi;
+      document.getElementById(`rsq-${qi}-${oi}`)?.classList.add('selected');
+    },
+    check(){
+      const p=PASSAGES[pidx]; checked=true; let correct=0;
+      p.qs.forEach((q,qi)=>{
+        const chosen=answers[qi]; const fb=document.getElementById(`rsfb-${qi}`);
+        q.opts.forEach((_,oi)=>{
+          const el=document.getElementById(`rsq-${qi}-${oi}`); if(!el) return;
+          el.classList.remove('selected');
+          if(oi===q.ans) el.classList.add('correct');
+          else if(oi===chosen && chosen!==q.ans) el.classList.add('wrong');
+        });
+        if(chosen===undefined){fb.className='feedback info';fb.textContent='No answer selected.';fb.style.display='block';}
+        else if(chosen===q.ans){correct++;fb.className='feedback ok';fb.textContent='Correct!';fb.style.display='block';}
+        else{
+          const correctLabel=q.type==='mcq'?String.fromCharCode(65+q.ans)+': '+q.opts[q.ans]:q.opts[q.ans];
+          fb.className='feedback bad';fb.textContent='Incorrect. The correct answer is: '+correctLabel;fb.style.display='block';
+        }
+      });
+      const sp=document.getElementById('rs-score');
+      sp.textContent=correct+' / '+p.qs.length+' correct';sp.style.display='inline-block';
+    },
+    reset(){render();}
+  };
+})();
+RS.load(0);
+
+
+// ============================================================
+// READING — PEOPLE MATCHING (3 exercises)
+// ============================================================
+const MATCHING_SETS = [
+  {
+    instr:"Read the four researchers' opinions below. Then match each statement (1–8) to the correct person (A–D). You may use each letter more than once.",
+    people:[
+      {name:"Dr. Priya Sharma",role:"Education researcher, University of Edinburgh",badge:"badge-blue",letter:"A",
+       text:"My studies consistently show that technology integration yields the strongest long-term benefits when supported by well-trained teachers. Without adequate professional development, even the most advanced tools become ineffective. I am sceptical of one-size-fits-all digital programmes that ignore local classroom realities. Schools must be given the autonomy to adapt tools to their specific community needs and cultural context."},
+      {name:"Prof. Marcus Osei",role:"Technology policy analyst, Accra Institute",badge:"badge-green",letter:"B",
+       text:"The digital divide remains the central unresolved issue in educational technology. Wealthier schools adopt the latest devices while under-resourced institutions struggle with unreliable internet connectivity. I argue that policy must prioritise infrastructure before devices — a tablet without broadband access is essentially an expensive textbook. Governments are investing in hardware when the real barriers are connectivity and teacher capacity."},
+      {name:"Dr. Ingrid Larsson",role:"Child development specialist, Stockholm University",badge:"badge-amber",letter:"C",
+       text:"My primary concern is the developmental impact of screen time on young children. Research indicates that excessive digital exposure before age seven can interfere with the development of attention spans and social interaction skills. I do not oppose educational technology altogether, but I believe we must establish evidence-based age-appropriate guidelines. The rush to digitise classrooms has outpaced our understanding of the developmental consequences."},
+      {name:"Prof. James Whitfield",role:"Economics of education, London School of Economics",badge:"badge-purple",letter:"D",
+       text:"From an economic standpoint, the cost-benefit analysis of large-scale educational technology programmes is far less favourable than proponents claim. Several randomised control trials, including programmes in Peru and India, found little measurable improvement in learning outcomes despite significant investment. The money would be better spent on reducing class sizes and increasing teacher salaries. Technology is no substitute for quality human instruction."}
+    ],
+    qs:[
+      {q:"This researcher believes that internet access should be prioritised over providing hardware to schools.",ans:"B"},
+      {q:"This researcher argues that the speed of technology adoption in classrooms has exceeded our scientific understanding of its effects on children.",ans:"C"},
+      {q:"This researcher states that financial investment in educational technology has not produced proportional improvements in student learning.",ans:"D"},
+      {q:"This researcher emphasises the importance of giving individual schools freedom to adapt digital tools to their own contexts.",ans:"A"},
+      {q:"This researcher suggests that reducing class sizes would be a more effective use of education budgets than investing in technology.",ans:"D"},
+      {q:"This researcher recommends evidence-based guidelines for appropriate screen time at different stages of child development.",ans:"C"},
+      {q:"This researcher believes that teacher training and support are prerequisites for educational technology to be effective.",ans:"A"},
+      {q:"This researcher identifies reliable internet connectivity as more important than access to devices.",ans:"B"}
+    ]
+  },
+  {
+    instr:"Read the four urban planners' perspectives below. Match each statement (1–8) to the correct planner (A–D). A planner may be used more than once.",
+    people:[
+      {name:"Prof. Amara Diallo",role:"Urban sustainability specialist, Paris",badge:"badge-blue",letter:"A",
+       text:"My work centres on the idea that cities must be redesigned around people, not vehicles. Expanding cycling infrastructure and pedestrian zones does not merely reduce emissions — it fundamentally improves public health, community cohesion and local economic activity. Studies from Copenhagen and Amsterdam consistently demonstrate that streets reclaimed from cars see significant increases in retail revenue. The perceived need for car access is largely a product of poor urban design, not genuine necessity."},
+      {name:"Dr. Chen Wei",role:"Smart city researcher, Singapore",badge:"badge-teal",letter:"B",
+       text:"Data-driven urban management represents the most promising path to genuinely efficient cities. Sensor networks, real-time traffic management and predictive maintenance of infrastructure can dramatically reduce waste and improve the quality of public services. However, I am deeply concerned that the implementation of smart city technologies has consistently outpaced the development of adequate data governance frameworks. Citizens have a right to know what data is being collected and how it is being used."},
+      {name:"Zara Okonkwo",role:"Housing policy advocate, Lagos",badge:"badge-amber",letter:"C",
+       text:"Urban planning discourse in the Global North ignores the reality faced by the majority of the world's urban population. In rapidly growing cities across Africa, Asia and Latin America, the most pressing challenges are not cycle lanes or smart sensors — they are access to clean water, sanitation, secure land tenure and affordable housing. International development frameworks must prioritise the basic needs of informal settlements rather than importing high-technology solutions designed for wealthy contexts."},
+      {name:"Prof. Heinrich Müller",role:"Transport economics, Technical University Berlin",badge:"badge-purple",letter:"D",
+       text:"The relationship between urban density and transport efficiency is well-established in the literature. Higher-density mixed-use development reduces travel distances, supports viable public transport networks and lowers per-capita carbon emissions. The problem is not that we lack the knowledge to build sustainable cities — the problem is that existing zoning laws, property ownership structures and political incentives consistently work against density. Reform of planning legislation is the single most important lever available to city governments."}
+    ],
+    qs:[
+      {q:"This planner argues that current data collection in smart cities lacks sufficient transparency and accountability to citizens.",ans:"B"},
+      {q:"This planner contends that the primary urban planning challenges in developing nations are fundamentally different from those discussed in wealthy countries.",ans:"C"},
+      {q:"This planner states that changing zoning laws is the most important action city governments can take to improve urban sustainability.",ans:"D"},
+      {q:"This planner provides evidence from specific European cities to support the economic benefits of reducing car access.",ans:"A"},
+      {q:"This planner suggests that the desire for car access in cities is not a genuine necessity but a result of poor design.",ans:"A"},
+      {q:"This planner argues that international development organisations should focus on basic services rather than advanced technology solutions.",ans:"C"},
+      {q:"This planner believes that building more densely is essential for reducing the environmental impact of cities.",ans:"D"},
+      {q:"This planner acknowledges the benefits of technology but highlights a governance gap in its application.",ans:"B"}
+    ]
+  },
+  {
+    instr:"Read the four energy experts' views below. Match each statement (1–8) to the correct expert (A–D). An expert may be used more than once.",
+    people:[
+      {name:"Dr. Sofia Andersen",role:"Renewable energy economist, Copenhagen",badge:"badge-blue",letter:"A",
+       text:"The economic case for renewable energy is now overwhelming and largely beyond debate. The levelised cost of solar and wind energy has fallen by over 90% in the past decade, making them the cheapest sources of new electricity generation in most markets worldwide. The transition to renewables is no longer an environmental luxury but an economic inevitability. The remaining barriers are not technological or financial — they are regulatory and political, maintained by incumbent fossil fuel interests with disproportionate influence over energy policy."},
+      {name:"Prof. Raj Patel",role:"Energy security analyst, New Delhi",badge:"badge-green",letter:"B",
+       text:"The intermittency problem is the central unsolved challenge of the renewable energy transition. Solar panels do not generate power at night and wind turbines are idle during calm periods. Until grid-scale energy storage technology matures sufficiently — and current battery technology is nowhere near adequate for base-load purposes — a reliable energy system will continue to require dispatchable sources such as natural gas or nuclear power. Advocates of a 100% renewable grid are, in my view, prioritising aspiration over engineering reality."},
+      {name:"Dr. Fatima Al-Rashid",role:"Climate and energy policy, Abu Dhabi",badge:"badge-amber",letter:"C",
+       text:"The debate about energy transition in wealthy nations overlooks the legitimate development needs of countries that are still building their energy infrastructure. Developing nations should not be expected to forego the cheap, abundant energy sources that powered the industrialisation of Europe and North America. A just transition must include substantial financial and technological transfers from developed to developing economies. Climate finance commitments made at international summits have consistently fallen short of what is actually required."},
+      {name:"Prof. Elena Vasquez",role:"Nuclear energy advocate, Madrid",badge:"badge-purple",letter:"D",
+       text:"Nuclear power remains the most misunderstood energy source in the public debate. When measured per unit of energy produced, nuclear power has the lowest mortality rate of any energy source, including wind and solar. Modern reactor designs are dramatically safer than the generation that produced the accidents at Chernobyl and Fukushima. Any credible pathway to deep decarbonisation of the electricity grid must include nuclear power as a stable, low-carbon baseload source. Excluding nuclear from clean energy policy on the basis of outdated public perception is scientifically indefensible."}
+    ],
+    qs:[
+      {q:"This expert argues that the obstacles to renewable energy adoption are primarily political rather than economic or technical.",ans:"A"},
+      {q:"This expert claims that nuclear energy has a better safety record than is commonly understood by the public.",ans:"D"},
+      {q:"This expert argues that developing nations should not be required to make the same energy transition as industrialised countries.",ans:"C"},
+      {q:"This expert states that current battery storage technology is insufficient to support a fully renewable electricity grid.",ans:"B"},
+      {q:"This expert believes that nuclear power must be part of any realistic strategy to decarbonise electricity generation.",ans:"D"},
+      {q:"This expert criticises wealthy nations for failing to fulfil their financial commitments to support energy transitions elsewhere.",ans:"C"},
+      {q:"This expert argues that the cost reductions in renewable energy make the transition an economic certainty.",ans:"A"},
+      {q:"This expert maintains that a reliable energy system will continue to need conventional dispatchable energy sources for the foreseeable future.",ans:"B"}
+    ]
+  }
+  ,{
+    instr:"Read the four scientists' perspectives below. Match each statement (1–8) to the correct scientist (A–D). A scientist may be used more than once.",
+    people:[
+      {name:"Prof. Laura Bennett",role:"Epidemiologist, Harvard T.H. Chan School of Public Health",badge:"badge-blue",letter:"A",
+       text:"My research consistently demonstrates that population-level interventions — such as sugar taxes, tobacco regulation and mandatory food labelling — produce more equitable health outcomes than campaigns targeting individual behaviour. People who are most at risk of chronic disease are also those with the least time, money and social support to act on health advice. Public health policy must address the structural conditions that shape health choices rather than placing the entire burden on individuals."},
+      {name:"Dr. Kwame Asante",role:"Behavioural economist, Oxford Internet Institute",badge:"badge-green",letter:"B",
+       text:"The application of behavioural insights — sometimes called nudge theory — offers a pragmatic middle ground between heavy-handed regulation and ineffective information campaigns. Small, carefully designed changes to the environment in which choices are made can guide people towards healthier options without restricting their freedom. The evidence base for nudges in areas such as organ donation, retirement savings and healthy eating is now substantial, and governments are underusing this toolkit."},
+      {name:"Dr. Anita Rossi",role:"Medical ethicist, University of Milan",badge:"badge-amber",letter:"C",
+       text:"I am deeply concerned about the direction of public health policy in many countries, which is increasingly adopting paternalistic measures that override individual autonomy. Competent adults have the right to make their own lifestyle choices, even ones that carry health risks. The role of the state should be to ensure that citizens have access to accurate health information and affordable healthcare — not to manipulate their choices or penalise legal behaviours through taxation. The evidence that such interventions reduce inequality is far weaker than advocates claim."},
+      {name:"Prof. Yuki Tanaka",role:"Global health systems researcher, Tokyo University",badge:"badge-purple",letter:"D",
+       text:"International comparisons consistently show that health systems which integrate preventive care into routine medical practice achieve better population health outcomes at lower cost than those focused primarily on treating illness after it develops. Investment in primary care, screening programmes and community health workers produces measurable returns over five-to-ten-year timeframes. The political challenge is persuading governments to prioritise long-term prevention over the more visible short-term results of acute care investment."}
+    ],
+    qs:[
+      {q:"This researcher believes that healthy policy environments are more effective than personal behaviour change campaigns for improving public health.",ans:"A"},
+      {q:"This researcher argues that the evidence for population-level interventions reducing inequality is not as strong as claimed.",ans:"C"},
+      {q:"This researcher advocates for designing choice environments to guide people towards healthier decisions without restricting freedom.",ans:"B"},
+      {q:"This researcher states that integrating prevention into routine healthcare produces better long-term outcomes at lower cost.",ans:"D"},
+      {q:"This researcher argues that the state's role should be limited to providing information and healthcare access, not influencing choices.",ans:"C"},
+      {q:"This researcher notes that governments are not making full use of evidence-based tools for shaping health-related decisions.",ans:"B"},
+      {q:"This researcher highlights a political challenge in persuading governments to invest in prevention rather than acute care.",ans:"D"},
+      {q:"This researcher contends that structural social conditions must be addressed to achieve equitable health outcomes.",ans:"A"}
+    ]
+  }
+  ,{
+    instr:"Read the four writers' views on artificial intelligence below. Match each statement (1–8) to the correct writer (A–D). A writer may be used more than once.",
+    people:[
+      {name:"Dr. Melissa Chow",role:"AI safety researcher, Centre for Human-Compatible AI",badge:"badge-blue",letter:"A",
+       text:"The risks posed by advanced artificial intelligence are not science fiction — they are a serious and underappreciated engineering challenge that deserves urgent attention from the research community and policymakers alike. As AI systems become more capable, ensuring that their goals and values remain aligned with human intentions becomes increasingly difficult. I am not predicting imminent catastrophe, but I believe the window of opportunity to establish robust safety practices and governance frameworks is shorter than most people assume."},
+      {name:"Prof. James Okafor",role:"Technology sociologist, Columbia University",badge:"badge-teal",letter:"B",
+       text:"The dominant narrative around AI risk focuses almost entirely on speculative future dangers while ignoring the very real harms that existing AI systems are causing right now. Algorithmic hiring tools discriminate against minority candidates. Predictive policing systems perpetuate racial bias. Credit scoring algorithms disadvantage the poor. Facial recognition technology misidentifies people of colour at dramatically higher rates. These are not hypothetical risks — they are documented, ongoing injustices that demand immediate attention and accountability."},
+      {name:"Dr. Priya Krishnamurthy",role:"AI policy director, World Economic Forum",badge:"badge-amber",letter:"C",
+       text:"International governance of artificial intelligence is urgently needed, but existing mechanisms are woefully inadequate. AI development is dominated by a small number of companies and countries, primarily in the United States and China, with the vast majority of the world having little influence over technologies that will profoundly shape their futures. Effective governance must be genuinely multilateral, giving all nations a meaningful voice in establishing norms and standards for the development and deployment of AI systems."},
+      {name:"Prof. Anton Reiss",role:"Computer scientist and AI entrepreneur, ETH Zurich",badge:"badge-purple",letter:"D",
+       text:"Much of the pessimism surrounding artificial intelligence misunderstands what these systems actually are and how they work. Current AI — including the most advanced language models — consists of sophisticated pattern-matching systems without genuine understanding, consciousness or long-term goals. The practical risks of today's AI are real but manageable through good engineering practice and sensible regulation. Overblown existential risk narratives distract from the more immediate task of building AI that is reliable, transparent and genuinely useful."}
+    ],
+    qs:[
+      {q:"This writer argues that current AI systems are already causing documented, ongoing harms to marginalised groups.",ans:"B"},
+      {q:"This writer believes that the window for establishing AI safety governance is shorter than most people recognise.",ans:"A"},
+      {q:"This writer contends that existing international governance mechanisms are inadequate and that most of the world has little influence over AI development.",ans:"C"},
+      {q:"This writer argues that concerns about long-term existential risk distract from the more immediate challenge of building reliable AI.",ans:"D"},
+      {q:"This writer highlights biased algorithmic systems in hiring, policing and credit scoring as examples of current AI harm.",ans:"B"},
+      {q:"This writer calls for genuinely multilateral governance that gives all nations a meaningful voice in AI norm-setting.",ans:"C"},
+      {q:"This writer maintains that current AI systems do not have genuine understanding or long-term goals.",ans:"D"},
+      {q:"This writer does not predict imminent catastrophe but believes AI alignment is a serious engineering challenge.",ans:"A"}
+    ]
+  }
+];
+
+const RM = (() => {
+  let idx=0;
+  function render(){
+    const set=MATCHING_SETS[idx];
+    document.getElementById('rm-instr').textContent=set.instr;
+    const pg=document.getElementById('rm-people'); pg.innerHTML='';
+    set.people.forEach(p=>{
+      const card=document.createElement('div'); card.className='person-card';
+      card.innerHTML=`<span class="badge ${p.badge}" style="margin-bottom:6px">${p.letter} — ${p.name}</span><div class="person-role">${p.role}</div><div class="person-text">${p.text}</div>`;
+      pg.appendChild(card);
+    });
+    const mq=document.getElementById('rm-questions'); mq.innerHTML='';
+    document.getElementById('rm-score').style.display='none';
+    set.qs.forEach((q,qi)=>{
+      const block=document.createElement('div'); block.className='match-block';
+      const opts=set.people.map(p=>`<option value="${p.letter}">${p.letter} — ${p.name}</option>`).join('');
+      block.innerHTML=`<div class="q-num">Statement ${qi+1}</div><div class="match-q">${q.q}</div><select class="match-sel" id="rmq-${qi}"><option value="">— Select a person —</option>${opts}</select><div class="feedback" id="rmfb-${qi}" style="display:none"></div>`;
+      mq.appendChild(block);
+    });
+  }
+  return {
+    load(i){idx=parseInt(i); render();},
+    check(){
+      const set=MATCHING_SETS[idx]; let correct=0;
+      set.qs.forEach((q,qi)=>{
+        const sel=document.getElementById(`rmq-${qi}`);
+        const fb=document.getElementById(`rmfb-${qi}`);
+        const chosen=sel.value;
+        sel.classList.remove('correct','wrong');
+        if(!chosen){fb.className='feedback info';fb.textContent='No answer selected.';fb.style.display='block';}
+        else if(chosen===q.ans){correct++;sel.classList.add('correct');fb.className='feedback ok';fb.textContent='Correct!';fb.style.display='block';}
+        else{
+          const cp=set.people.find(p=>p.letter===q.ans);
+          sel.classList.add('wrong');
+          fb.className='feedback bad';
+          fb.textContent='Incorrect. The correct answer is '+q.ans+' — '+cp.name+'.';
+          fb.style.display='block';
+        }
+      });
+      const sp=document.getElementById('rm-score');
+      sp.textContent=correct+' / '+set.qs.length+' correct';sp.style.display='inline-block';
+    },
+    reset(){render();}
+  };
+})();
+RM.load(0);
+
+
+// ============================================================
+// WRITING — PROMPTS & MODEL ANSWERS
+// ============================================================
+const W1_PROMPTS = [
+  {
+    title:"Bar chart: Internet usage by age group",
+    type:"Task 1 — Bar Chart",
+    text:"The bar chart below shows the percentage of people in five different age groups who used the internet daily in a European country in 2005 and 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+    chart:"Age groups: 16–24, 25–34, 35–44, 45–54, 55–64\n2005: 72%, 61%, 48%, 29%, 11%\n2020: 99%, 97%, 94%, 85%, 61%",
+    tips:"• Describe the overall trend first (usage increased across all groups)\n• Highlight the most notable features: youngest group near 100% in 2020, biggest proportional change in the 55–64 group\n• Use data selectively — do not list every figure\n• Organise by comparison: 2005 vs 2020, OR by age group",
+    model:"The bar chart illustrates the proportion of people across five age groups who used the internet on a daily basis in a European country in 2005 and 2020.\n\nOverall, daily internet usage increased substantially across all age groups over the 15-year period, with the most dramatic growth observed among older age groups.\n\nIn 2005, usage was highest among the youngest age group (16–24), at 72%, and declined progressively with age, falling to just 11% among those aged 55–64. By 2020, the pattern had shifted considerably. The three youngest groups all reported usage rates above 90%, with 16–24-year-olds reaching near-universal adoption at 99%. Those aged 35–44 rose from 48% to 94%, representing almost a doubling.\n\nPerhaps most striking was the change among the oldest group. Daily internet use among 55–64-year-olds increased by 50 percentage points, from 11% in 2005 to 61% in 2020, by far the largest proportional increase of any group. The 45–54 group also showed significant growth, from 29% to 85%.\n\nIn summary, while younger age groups maintained high and increasing levels of daily internet usage, the most remarkable transformation occurred among older adults, suggesting a significant generational shift in digital habits over the period."
+  },
+  {
+    title:"Line graph: CO₂ emissions 1990–2020",
+    type:"Task 1 — Line Graph",
+    text:"The line graph below shows CO₂ emissions (in billion tonnes) for three regions — North America, Europe, and Asia — between 1990 and 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+    chart:"North America: 6.0 (1990) → 7.1 (2005) → 6.2 (2020)\nEurope: 5.2 (1990) → 4.8 (2005) → 3.9 (2020)\nAsia: 4.1 (1990) → 8.3 (2005) → 14.2 (2020)",
+    tips:"• Describe the overall trend for each region before going into detail\n• Identify crossover points: Asia overtook Europe around 1999, overtook North America around 2006\n• Comment on the contrasting directions of North America/Europe (fluctuating/declining) vs Asia (rapidly increasing)\n• Avoid speculating about causes",
+    model:"The line graph shows CO₂ emissions in billion tonnes for North America, Europe and Asia over a 30-year period from 1990 to 2020.\n\nOverall, the three regions showed markedly different trends. Asian emissions rose dramatically throughout the period, while European emissions declined steadily. North American emissions followed a rise-and-fall pattern, ending close to their 1990 level.\n\nIn 1990, North America produced the highest emissions at 6.0 billion tonnes, followed by Europe at 5.2 billion tonnes and Asia at 4.1 billion tonnes. Over the following 15 years, Asian emissions more than doubled, reaching 8.3 billion tonnes by 2005, at which point they surpassed both other regions. This upward trajectory continued steeply, with Asia recording 14.2 billion tonnes by 2020 — more than three times its 1990 level.\n\nIn contrast, European emissions fell consistently across the period, declining from 5.2 to 3.9 billion tonnes, a reduction of approximately 25%. North American emissions increased initially, peaking at 7.1 billion tonnes in 2005 before declining to 6.2 billion tonnes in 2020, still slightly above the starting figure.\n\nBy 2020, the gap between Asia and the other two regions had grown substantially, with Asian emissions exceeding the combined total of North America and Europe."
+  },
+  {
+    title:"Pie chart: Household energy consumption",
+    type:"Task 1 — Pie Chart",
+    text:"The two pie charts below show how energy was consumed in an average household in the UK in 1990 and 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+    chart:"1990: Space heating 57%, Water heating 24%, Cooking 10%, Lighting 5%, Appliances 4%\n2020: Space heating 38%, Water heating 19%, Cooking 7%, Lighting 9%, Appliances 27%",
+    tips:"• Open with an overview comparing the dominant categories in each year\n• Highlight the biggest changes: space heating declined sharply; appliances rose dramatically\n• Note that lighting increased slightly despite efficiency improvements (more devices)\n• Cooking and water heating both fell, but remained significant",
+    model:"The pie charts compare household energy consumption across five categories in the United Kingdom in 1990 and 2020.\n\nOverall, space heating and water heating dominated in both years, though their combined share declined considerably. The most notable change was the dramatic rise in energy used by appliances.\n\nIn 1990, space heating accounted for the majority of household energy use at 57%, followed by water heating at 24%. Together, these two categories represented over 80% of total consumption. Cooking accounted for 10%, while lighting and appliances made up only 5% and 4% respectively.\n\nBy 2020, the picture had changed substantially. Although space heating remained the largest single category, its share had fallen to 38%, a decline of 19 percentage points. Water heating also decreased, from 24% to 19%, and cooking dropped slightly from 10% to 7%.\n\nIn stark contrast, the proportion attributed to appliances rose from 4% in 1990 to 27% in 2020, an increase of 23 percentage points and by far the most dramatic shift in the data. Lighting also increased modestly, from 5% to 9%, likely reflecting the growing number of electronic devices in modern homes.\n\nIn summary, while heating-related consumption fell, the proliferation of household appliances over the three decades fundamentally altered the energy consumption profile of the average UK home."
+  },
+  {
+    title:"Process diagram: Water recycling",
+    type:"Task 1 — Process Diagram",
+    text:"The diagram below illustrates the process by which wastewater is treated and recycled for domestic and agricultural use. Summarise the information by selecting and reporting the main features of the process.",
+    chart:"Stage 1: Collection — wastewater collected via sewer network\nStage 2: Screening — large solids removed using metal screens\nStage 3: Primary treatment — solids settle in tanks, sludge removed\nStage 4: Secondary treatment — bacteria break down organic matter\nStage 5: Tertiary treatment — filtration and UV disinfection\nStage 6: Distribution — treated water sent to agriculture (60%) and domestic use (40%)",
+    tips:"• Use passive voice and sequencing language (first, then, following this, finally)\n• Describe all stages in order — do not skip any\n• Note the split at the final stage between two uses\n• Use present simple passive: water is collected, solids are removed, etc.",
+    model:"The diagram outlines a six-stage process through which wastewater is treated and redistributed for domestic and agricultural purposes.\n\nThe process begins when wastewater is collected from homes and businesses via an underground sewer network. It is then directed to a treatment facility where, in the first stage, large solid materials such as plastic and debris are physically removed by passing the water through metal screens.\n\nFollowing this initial screening, the water enters primary treatment tanks, where it is held until heavier solid particles settle to the bottom. The resulting sludge is extracted and disposed of separately, while the partially treated water moves to the secondary treatment stage.\n\nIn the secondary stage, naturally occurring bacteria are introduced to break down dissolved organic matter and harmful pathogens remaining in the water. This biological process significantly reduces contamination levels. The water then proceeds to tertiary treatment, which involves fine filtration to remove remaining particles, followed by ultraviolet disinfection to eliminate any residual microorganisms.\n\nOnce fully treated, the clean water is distributed through two separate channels. Approximately 60% is directed to agricultural use for crop irrigation, while the remaining 40% is returned to the domestic water supply for residential use.\n\nOverall, the process transforms wastewater into a reusable resource through a systematic sequence of physical, biological and chemical treatments."
+  }
+  ,{
+    title:"Table: University graduation rates by subject",
+    type:"Task 1 — Table",
+    text:"The table below shows graduation rates (percentage of enrolled students who completed their degree) across five subject areas in a university in 2010 and 2020, broken down by gender. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+    chart:"Subject | Male 2010 | Female 2010 | Male 2020 | Female 2020\nMedicine: 89% | 91% | 93% | 96%\nEngineering: 72% | 68% | 78% | 81%\nBusiness: 65% | 70% | 71% | 76%\nHumanities: 61% | 74% | 66% | 79%\nComputer Science: 70% | 58% | 75% | 73%",
+    tips:"• Identify the most striking overall trends: rates improved in most areas; female rates overtook male in engineering and computer science\n• Note any exceptions or surprising data points\n• Select the most significant figures — do not list every number\n• Use comparative language: 'higher than', 'the gap narrowed', 'while', 'by contrast'",
+    model:"The table shows graduation rates for male and female students across five subject areas at a university in 2010 and 2020.\n\nOverall, graduation rates improved across virtually all subjects and genders over the decade, with female students generally recording higher or comparable rates to their male counterparts by 2020.\n\nMedicine consistently had the highest graduation rates throughout the period. Female medical students achieved 91% completion in 2010, rising to 96% by 2020, while male rates also improved from 89% to 93%. Engineering showed one of the most notable gender shifts: female rates rose from 68% to 81%, surpassing male rates of 78% in 2020, representing a reversal of the 2010 gender gap.\n\nThe humanities showed a consistently wide gender gap, with female students outperforming males in both years — 74% versus 61% in 2010, and 79% versus 66% in 2020. Business followed a similar pattern, with female graduation rates exceeding male rates throughout the period.\n\nComputer science presented the most distinctive pattern. In 2010, female graduation rates were substantially lower than male (58% versus 70%), though by 2020 this gap had narrowed considerably, with female rates reaching 73% compared to 75% for males.\n\nIn summary, while medicine remained the subject with the highest overall completion rates, the most significant development across the decade was the improvement in female graduation rates, which in several subjects surpassed or approached parity with male rates."
+  }
+  ,{
+    title:"Map: Changes to a town centre 2000–2020",
+    type:"Task 1 — Map Comparison",
+    text:"The two maps below show the centre of a small town in 2000 and 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+    chart:"2000: Large department store (north), open market (centre), two banks (east), cinema (west), car park (south), public garden (southeast)\n2020: Department store converted to apartments (north), market replaced by pedestrian shopping zone (centre), one bank remains + café opened (east), cinema demolished — now hotel (west), car park extended (south), public garden maintained (southeast), new cycle paths throughout",
+    tips:"• Organise spatially: go area by area (north, centre, east, west, south)\n• Use passive voice: 'the cinema was demolished', 'the market was replaced'\n• Start with an overview of the general direction of change (more residential, more pedestrian-friendly)\n• Note what has NOT changed as well as what has",
+    model:"The maps illustrate how the centre of a small town changed between 2000 and 2020, with significant development activity resulting in a more pedestrian-oriented and residential environment.\n\nOverall, the most striking changes involved the replacement of commercial and entertainment facilities with residential and leisure-focused alternatives, alongside improvements to pedestrian and cycling infrastructure.\n\nIn the northern part of the town centre, the large department store that dominated in 2000 was converted into an apartment complex by 2020, reflecting a trend towards increased residential use of the town centre. To the west, the cinema, which had occupied a prominent position in 2000, was demolished and replaced by a hotel, suggesting growing demand for visitor accommodation.\n\nThe central area underwent perhaps the most significant transformation. The open market that previously occupied this space was replaced by a pedestrian shopping zone, indicating a shift away from traditional market trading towards a more curated retail environment. New cycle paths were introduced throughout the centre, reinforcing the pedestrian-friendly direction of development.\n\nOn the eastern side, one of the two banks that existed in 2000 had closed by 2020, with a café opening in its place. The southern car park was extended, acknowledging continued need for vehicle access despite the wider pedestrian improvements. Notably, the public garden in the southeast remained unchanged throughout the period, providing continuity within an otherwise substantially transformed town centre."
+  }
+];
+
+const W2_PROMPTS = [
+  {
+    title:"Social media and young people",
+    type:"Task 2 — Opinion / Discussion Essay",
+    text:"Some people believe that social media has had an overwhelmingly negative impact on young people's mental health and social development. Others argue that the benefits of social media outweigh the drawbacks. Discuss both views and give your own opinion.",
+    tips:"Structure: Introduction → Body 1 (negative view + evidence) → Body 2 (positive view + evidence) → Your opinion → Conclusion\n• Avoid overgeneralising — use hedging language: 'may', 'can', 'some evidence suggests'\n• Give specific examples: cyberbullying, FOMO, community building, access to information\n• Your opinion should be clearly stated and consistently supported",
+    model:`Social media has become an integral part of daily life for millions of young people worldwide, and debate about its consequences has intensified considerably in recent years. While there are valid concerns about its impact on wellbeing, the view that social media is entirely harmful oversimplifies a more complex reality.
+
+Those who argue that social media damages young people point to a growing body of psychological research linking heavy usage to increased rates of anxiety, depression and low self-esteem. The phenomenon of social comparison — whereby users measure their own lives against the curated, idealised images presented by peers — can foster feelings of inadequacy. Furthermore, cyberbullying has emerged as a serious concern, with studies suggesting that victims of online harassment are significantly more likely to experience mental health difficulties. The addictive design of many platforms, which deliberately exploit reward pathways in the developing brain, raises additional ethical questions about the responsibility of technology companies.
+
+However, dismissing social media entirely ignores its substantial benefits. For many young people, particularly those who are marginalised or live in isolated communities, social platforms provide vital spaces for connection, self-expression and the formation of supportive communities. Access to information, educational content and diverse perspectives can broaden horizons in ways that previous generations could not access. Moreover, social media has proven to be a powerful tool for civic engagement, enabling young people to organise around social and environmental causes with unprecedented reach.
+
+In my view, the impact of social media on young people is neither uniformly positive nor negative — it depends largely on how it is used and the degree to which it is balanced with offline experiences. The priority should be promoting digital literacy, encouraging healthy usage habits, and holding platforms accountable for harmful design, rather than seeking to eliminate a technology that, used thoughtfully, offers genuine value.
+
+In conclusion, while the risks of excessive social media use are real and should not be minimised, a measured approach that maximises its benefits while mitigating harm is both more realistic and more effective than an overwhelmingly negative assessment.`
+  },
+  {
+    title:"Environment: governments vs individuals",
+    type:"Task 2 — Argument Essay (Agree / Disagree)",
+    text:"Some people believe that environmental problems are too serious to be left to individuals and that governments and large corporations must take primary responsibility for solving them. To what extent do you agree or disagree with this statement?",
+    tips:"Structure: Introduction (your position) → Body 1 (argue for government/corporate responsibility) → Body 2 (acknowledge individual role but explain its limitations) → Conclusion\n• Use strong modal language to express degree of agreement\n• Avoid sitting entirely on the fence — take a clear position",
+    model:`Environmental degradation represents one of the defining challenges of the twenty-first century, and the question of who bears primary responsibility for addressing it is both urgent and contested. I largely agree that governments and corporations must take the leading role, though I believe that individual action also has a meaningful, if secondary, part to play.
+
+The case for placing primary responsibility on governments and large corporations is compelling. The scale of environmental damage caused by industrial activity, fossil fuel extraction and agricultural systems far exceeds anything that could be addressed through changes in individual behaviour alone. A single large coal-fired power station can emit more carbon dioxide in a day than millions of households produce in a year. Only governments have the legislative authority to set binding emissions targets, impose carbon taxes, regulate industrial polluters and fund the infrastructure transitions required for a low-carbon economy. Similarly, corporations have the technological capacity and financial resources to develop and deploy clean energy solutions at the speed and scale the crisis demands.
+
+Nevertheless, individual behaviour is not irrelevant. Consumer demand shapes what corporations produce, and citizens who pressure governments — through voting, activism and public discourse — create the political conditions necessary for meaningful policy change. Lifestyle choices related to diet, transport and consumption patterns, while insufficient on their own, collectively contribute to emissions and resource depletion. Dismissing individual responsibility entirely risks fostering a passive attitude that delays the cultural shift required to sustain long-term policy change.
+
+Ultimately, however, framing environmental responsibility as primarily an individual matter risks deflecting attention from those with the greatest capacity to act. I believe that systemic change driven by robust government regulation and corporate accountability is the only mechanism capable of addressing environmental problems at the speed and scale required, with individual action providing a complementary but insufficient contribution.`
+  },
+  {
+    title:"University education and employment",
+    type:"Task 2 — Problem and Solution Essay",
+    text:"In many countries, young people are encouraged to pursue a university education, yet many graduates struggle to find employment in their field of study. What are the reasons for this problem, and what measures could be taken to address it?",
+    tips:"Structure: Introduction → Body 1 (causes: mismatch, overproduction of graduates, generic degrees) → Body 2 (solutions: work-based learning, career guidance, labour market data in course design) → Conclusion\n• Use cause-effect language: 'as a result', 'this leads to', 'consequently'\n• Proposals should be realistic and specific",
+    model:`Graduate unemployment has become an increasingly pressing concern in many economies, as the expansion of higher education has not always been matched by corresponding growth in graduate-level employment opportunities. Several interconnected factors contribute to this problem, and a range of targeted interventions could help to address it.
+
+One significant cause is the persistent mismatch between the skills and knowledge taught in universities and those actually demanded by employers. Many degree programmes have not kept pace with rapid changes in technology, data analysis and digital literacy, leaving graduates technically qualified but practically underprepared for modern workplaces. This disconnect is particularly acute in the humanities and social sciences, where the link between academic content and specific professional roles can be difficult to articulate.
+
+A further contributing factor is the overproduction of graduates in certain fields relative to available positions. As governments have encouraged participation in higher education as a route to economic mobility, some sectors — including law, journalism and the arts — have seen supply of qualified candidates substantially outpace demand. Additionally, the devaluation of vocational and technical qualifications has pushed many students towards academic routes that do not align with their interests or the economy's needs.
+
+To address these issues, universities should strengthen partnerships with industry to ensure that curricula remain aligned with labour market realities and that students have opportunities for meaningful work placements and professional networking. Governments could also invest in better career information systems that enable students to make more informed decisions about courses and institutions based on employment outcomes. Equally important is restoring the status and funding of vocational training pathways, which in many countries can offer more direct routes to sustainable employment than generic degree programmes.
+
+In conclusion, graduate unemployment stems from structural mismatches that require coordinated responses from universities, governments and employers rather than individual adjustments by students alone.`
+  },
+  {
+    title:"Globalisation and cultural identity",
+    type:"Task 2 — Discussion Essay",
+    text:"Globalisation has led to the spread of the same brands, products and media content around the world. Some people see this as a positive development, while others believe it threatens cultural diversity and identity. Discuss both views and give your own opinion.",
+    tips:"• Positive view: access, economic development, shared values, cultural exchange\n• Negative view: homogenisation, loss of traditional practices, dominance of Western culture\n• Balance is key — avoid suggesting one side is entirely right",
+    model:`The accelerating pace of globalisation has brought the same consumer brands, entertainment franchises and media platforms to virtually every corner of the world. This homogenisation of culture has provoked sharply contrasting reactions: enthusiasm from those who see it as a sign of global integration, and concern from those who fear the erosion of distinct cultural identities.
+
+Proponents of cultural globalisation argue that the free movement of cultural products enriches societies by exposing them to new ideas, art forms and practices. The global spread of music genres, culinary traditions and storytelling formats has created hybrid cultures that are arguably more vibrant and dynamic than those that existed in isolation. Furthermore, the economic benefits associated with globalisation — including investment, technology transfer and job creation — have lifted living standards in many developing nations, giving more people access to education and cultural participation than ever before.
+
+Those critical of this trend, however, point to the disproportionate influence of a small number of wealthy nations — particularly the United States — in shaping global cultural output. When local films, music and crafts cannot compete with well-funded international franchises, indigenous cultural expressions risk being marginalised or abandoned altogether. Languages, traditional knowledge systems and community rituals that have survived for centuries are increasingly under threat as younger generations orient themselves towards globally dominant cultural products.
+
+My own view is that while cultural exchange is genuinely enriching, the current imbalance of cultural power warrants concern. Governments and communities have a legitimate interest in protecting and promoting their cultural heritage through targeted policies — public investment in local arts, education in minority languages and support for traditional crafts — without isolating themselves from the benefits of global exchange. Cultural diversity and global connectivity need not be mutually exclusive goals.`
+  },
+  {
+    title:"Responsibility for public health",
+    type:"Task 2 — Argument Essay",
+    text:"Improving public health is the responsibility of governments, not individuals. To what extent do you agree or disagree?",
+    tips:"• Consider: what can governments do that individuals cannot? (regulation, taxation, infrastructure, healthcare systems)\n• What are the limits of government intervention? (individual liberty, personal choices)\n• Take a nuanced position — shared responsibility is a defensible and sophisticated argument",
+    model:`Public health outcomes are shaped by a complex interplay of individual behaviours, socioeconomic conditions and policy choices. While I agree that governments bear a substantial and non-delegable responsibility for public health, I believe that reducing the issue to government action alone is an oversimplification that neglects the important role of individual agency.
+
+The case for government responsibility is persuasive. Many of the most significant determinants of health — air and water quality, food safety standards, access to healthcare, urban planning and the regulation of harmful substances — lie entirely within the domain of public policy and are beyond the control of ordinary citizens. Governments have unique authority to impose restrictions on tobacco advertising, mandate nutritional labelling, fund vaccination programmes and design built environments that encourage physical activity. Research consistently shows that these systemic interventions produce more significant and more equitable health improvements than education campaigns aimed at changing individual behaviour, particularly for lower-income populations with fewer lifestyle options.
+
+However, attributing public health entirely to government responsibility risks undervaluing individual agency. Personal decisions about diet, exercise, alcohol consumption and preventative healthcare have measurable impacts on individual and community health. A society in which citizens take active responsibility for their own wellbeing is likely to be healthier than one where individuals consider health entirely the state's concern. Moreover, in liberal democratic societies, excessive government intervention in personal lifestyle choices raises legitimate questions about autonomy and paternalism.
+
+In conclusion, I believe that governments must take primary responsibility for the structural and systemic factors that shape health outcomes, while individuals retain meaningful responsibility for the choices within their control. The most effective public health strategies are those that make healthy choices easier for everyone, combining enabling policy with informed personal agency rather than treating the two as mutually exclusive.`
+  },
+  {
+    title:"Private car ownership in cities",
+    type:"Task 2 — Problem and Solution Essay",
+    text:"The number of private cars in cities around the world continues to increase, causing a range of serious problems. What problems does this cause, and what measures can be taken to reduce private car ownership and usage in urban areas?",
+    tips:"• Problems: congestion, air pollution, accidents, inequality (space used per person), carbon emissions\n• Solutions: public transport investment, congestion charging, cycling infrastructure, mixed-use zoning\n• Be specific — name actual policy examples where possible",
+    model:`The continued growth of private car ownership in cities worldwide has created a range of overlapping urban crises that urban planners and policymakers are increasingly struggling to manage. Addressing these challenges requires a combination of targeted disincentives and substantial investment in alternative transport systems.
+
+The problems associated with high car usage in cities are well-documented. Traffic congestion wastes enormous quantities of productive time and economic output, particularly in rapidly growing metropolitan areas. Vehicle emissions from petrol and diesel engines remain a leading cause of urban air pollution, contributing to respiratory diseases and premature deaths, with the burden falling disproportionately on lower-income residents living near major roads. Beyond health impacts, the physical space devoted to roads and parking in car-dependent cities crowds out green space, cycling infrastructure and affordable housing, ultimately reducing the quality of life for residents who do not own cars.
+
+Reducing car dependency requires action on multiple fronts. Investment in high-quality, affordable and reliable public transport is arguably the most effective long-term measure, as it provides a genuine alternative to private car use rather than simply penalising drivers. Congestion charging — implemented successfully in cities such as London and Stockholm — uses pricing mechanisms to reduce traffic in the most congested urban zones while generating revenue that can be reinvested in public transport. Expanding cycling and pedestrian infrastructure not only reduces car trips but also improves public health and community wellbeing. At the planning level, mixed-use urban development that places housing, employment and services in proximity reduces the need for motorised travel in the first place.
+
+In conclusion, managing the problems caused by private car use requires a coherent package of measures that makes sustainable alternatives genuinely attractive, not merely the option of last resort for those who cannot afford to drive.`
+  }
+  ,{
+    title:"Technology and human connection",
+    type:"Task 2 — Agree / Disagree Essay",
+    text:"Some people argue that modern technology, particularly smartphones and social media, has made people more socially isolated despite being constantly connected. To what extent do you agree or disagree?",
+    tips:"Structure: Introduction (state your position clearly) → Body 1 (agree: superficial connections, face-to-face time reduced, loneliness data) → Body 2 (disagree or qualify: enables connection across distance, communities for isolated people) → Conclusion\n• Avoid saying 'I agree and disagree' without depth — commit to a nuanced but clear position\n• Use hedging language: 'in many cases', 'for some individuals'",
+    model:`Modern technology has fundamentally transformed the nature of human social interaction, and there is compelling evidence that, for many people, the result has been a form of connection that is broad in reach but shallow in depth. I largely agree that smartphones and social media have contributed to social isolation, though I believe the relationship is more nuanced than a simple causal claim suggests.
+
+The case for agreement draws on a substantial body of evidence. Average time spent in face-to-face social interaction has declined significantly in most developed countries over the past two decades, a period coinciding with the proliferation of smartphones and social media. Research by social psychologist Jean Twenge, analysing data from millions of American adolescents, found sharp increases in loneliness, anxiety and depression among cohorts that came of age alongside social media, with particularly pronounced effects for heavy users. The experience of being physically present with others while simultaneously absorbed in a screen has become a source of genuine social friction in many relationships. There is something paradoxical about platforms designed for connection that, in practice, often interrupt the quality of the connections people are already engaged in.
+
+However, dismissing technology's capacity to foster genuine human connection would be inaccurate. For geographically dispersed families, long-distance couples and expatriates, digital communication tools provide meaningful and emotionally significant contact that would otherwise be impossible. For individuals who face barriers to social participation — whether due to disability, social anxiety, marginalised identity or rural isolation — online communities can offer the only accessible space for genuine connection and mutual support. The quality of online relationships, when invested in deliberately, can be as meaningful as offline ones.
+
+My overall view is that technology is not inherently isolating, but that the specific design of attention-maximising social media platforms, combined with norms of constant availability, actively works against the depth of engagement that sustaining human connection requires. The problem is not connection itself but the manner in which our devices have been designed to displace it.`
+  }
+  ,{
+    title:"The value of learning history",
+    type:"Task 2 — Discussion Essay",
+    text:"Some people believe that studying history is essential for understanding the present and building a better future. Others argue that in a rapidly changing world, history is of little practical relevance. Discuss both views and give your own opinion.",
+    tips:"Structure: Introduction → Body 1 (value of history: patterns, mistakes, identity, critical thinking) → Body 2 (counter-argument: world has changed too much, resources better spent elsewhere) → Your opinion → Conclusion\n• Avoid simply listing points — develop each idea with explanation and examples\n• IELTS rewards depth over breadth: two well-developed points beat six thin ones",
+    model:`The question of whether the study of history retains practical value in an era of rapid technological and social change is one that has generated genuine debate among educators, policymakers and philosophers. I believe the case for history's enduring relevance is strong, though I acknowledge that how it is taught matters as much as whether it is taught.
+
+Those who argue for the importance of historical study make several compelling points. History provides the analytical framework through which current events become intelligible. The rise of authoritarian movements, the dynamics of financial crises, the consequences of imperial expansion and the patterns of pandemic disease can all be understood more deeply by those familiar with their historical precedents. Critical thinking skills — the ability to evaluate evidence, identify bias in sources and construct reasoned arguments — are developed through historical study in ways that are transferable across professional and civic contexts. Furthermore, historical knowledge plays a fundamental role in the formation of collective identity, helping societies understand where they have come from and what they share.
+
+Those who challenge history's relevance argue that the pace of contemporary change renders many historical patterns inapplicable. A world shaped by artificial intelligence, climate change and global supply chains, they suggest, has little to learn from the study of pre-modern economies or nineteenth-century empires. From a purely utilitarian perspective, they contend, educational resources might be better invested in the technical skills that modern economies demonstrably demand.
+
+I find this argument unpersuasive. The claim that unprecedented change makes historical knowledge irrelevant assumes that human nature, social dynamics and political behaviour have changed as rapidly as technology — which they demonstrably have not. The psychological and sociological patterns that historians study — the conditions under which democracies erode, the dynamics of group conflict, the consequences of inequality — remain as relevant as ever. In my view, a society that abandons the study of its past risks repeating its most costly errors with no framework for recognising them.`
+  }
+];
+
+// ============================================================
+// WRITING ENGINES — AI-powered via Claude API
+// ============================================================
+
+// ============================================================
+// API KEY MANAGER — stored in localStorage, never sent anywhere
+// except directly to api.anthropic.com from the user's browser
+// ============================================================
+const APIKey = (() => {
+  const STORAGE_KEY = 'ielts_anthropic_key';
+
+  function getKey() {
+    return localStorage.getItem(STORAGE_KEY) || '';
+  }
+
+  function updateUI() {
+    const key = getKey();
+    const hasKey = key.startsWith('sk-ant-') && key.length > 20;
+    const dot = document.getElementById('key-status-dot');
+    const input = document.getElementById('api-key-input');
+    const savedMsg = document.getElementById('key-saved-msg');
+
+    if (dot) dot.className = 'api-key-status' + (hasKey ? ' ok' : '');
+    if (input && !input.value) input.value = hasKey ? key : '';
+
+    const statusTxt = hasKey
+      ? '<span style="color:var(--green-text)">✓ API key configured — ready to analyse.</span>'
+      : '<span style="color:var(--red-text)">⚠ Add your Anthropic API key in the sidebar to enable analysis.</span>';
+
+    ['w1-key-status-txt','w2-key-status-txt'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = statusTxt;
+    });
+  }
+
+  function save() {
+    const input = document.getElementById('api-key-input');
+    const val = (input.value || '').trim();
+    if (!val) {
+      alert('Please enter your Anthropic API key (starts with sk-ant-).');
+      return;
+    }
+    if (!val.startsWith('sk-ant-')) {
+      alert('This does not look like a valid Anthropic API key.\nIt should start with sk-ant-');
+      return;
+    }
+    localStorage.setItem(STORAGE_KEY, val);
+    const savedMsg = document.getElementById('key-saved-msg');
+    if (savedMsg) { savedMsg.style.display = 'block'; setTimeout(() => { savedMsg.style.display = 'none'; }, 2500); }
+    input.value = '';
+    updateUI();
+  }
+
+  function clear() {
+    localStorage.removeItem(STORAGE_KEY);
+    const input = document.getElementById('api-key-input');
+    if (input) input.value = '';
+    updateUI();
+  }
+
+  // Expose key getter for the Writing engines
+  function require() {
+    const key = getKey();
+    if (!key || !key.startsWith('sk-ant-')) {
+      return null;
+    }
+    return key;
+  }
+
+  // Init on load
+  document.addEventListener('DOMContentLoaded', updateUI);
+  // Also run immediately in case DOM is already ready
+  setTimeout(updateUI, 100);
+
+  return { save, clear, require, updateUI };
+})();
+
+const W1 = (() => {
+  let pidx=0;
+  function renderPrompt(){
+    const p=W1_PROMPTS[pidx];
+    document.getElementById('w1-prompt-box').innerHTML=`
+      <div class="writing-prompt">
+        <div class="prompt-type">${p.type}</div>
+        <div class="prompt-text">${p.text}</div>
+        <div class="prompt-tips" style="margin-top:8px;padding:8px 10px;background:rgba(0,0,0,0.03);border-radius:4px;font-size:12px;line-height:1.7;color:var(--text2)">
+          <strong>Planning tips:</strong><br>${p.chart.replace(/\n/g,'<br>')}<br><br>${p.tips.replace(/\n/g,'<br>')}
+        </div>
+      </div>`;
+    document.getElementById('w1-feedback').innerHTML='';
+    document.getElementById('w1-input').value='';
+    document.getElementById('w1-wc').textContent='0 words';
+  }
+  return {
+    loadPrompt(i){pidx=parseInt(i); renderPrompt();},
+    countWords(){
+      const t=document.getElementById('w1-input').value.trim();
+      const wc=t?t.split(/\s+/).length:0;
+      const el=document.getElementById('w1-wc');
+      el.textContent=wc+' words';
+      el.style.color=wc>=150?'var(--green-text)':wc>=100?'var(--amber-text)':'var(--red-text)';
+    },
+    clear(){document.getElementById('w1-input').value=''; this.countWords(); document.getElementById('w1-feedback').innerHTML='';},
+    showModel(){
+      const p=W1_PROMPTS[pidx];
+      document.getElementById('w1-feedback').innerHTML=`
+        <div class="analysis-block" style="margin-top:1rem">
+          <div class="analysis-title" style="margin-bottom:8px">Model answer — Band 8 example</div>
+          <div style="font-size:14px;line-height:1.85;white-space:pre-line;color:var(--text)">${p.model}</div>
+        </div>`;
+    },
+    async analyse(){
+      const text=document.getElementById('w1-input').value.trim();
+      const wc=text?text.split(/\s+/).length:0;
+      const fb=document.getElementById('w1-feedback');
+      if(wc<50){fb.innerHTML='<div class="feedback warn">Please write at least 50 words before requesting analysis.</div>'; return;}
+      const p=W1_PROMPTS[pidx];
+      fb.innerHTML=`<div class="loading-row"><div class="spinner"></div><span>Analysing your response with Claude AI...</span></div>`;
+      const systemPrompt=`You are an expert IELTS examiner with 15+ years of experience. You will analyse a student's IELTS Writing Task 1 response and provide detailed, honest, precise feedback.
+
+The student must describe: ${p.text}
+Data provided: ${p.chart}
+
+Your task:
+1. Estimate a band score (0–9) for each criterion: Task Achievement (TA), Coherence & Cohesion (CC), Lexical Resource (LR), Grammatical Range & Accuracy (GRA). Be precise — do not round to the nearest full band if a 0.5 band is more accurate.
+2. Identify SPECIFIC strengths with exact quotes from the student's text.
+3. Identify SPECIFIC errors or weaknesses with exact quotes and corrections. Be strict: mark subject-verb disagreement, wrong tenses, wrong articles, inaccurate data references, missing overview, lack of comparison, vague language, repetition, etc.
+4. Provide 3–5 targeted improvement suggestions.
+5. Give an estimated overall band score.
+
+CRITICAL RULES FOR ACCURACY:
+- Do NOT give false praise. If the overview is missing, say so clearly.
+- Do NOT award Band 7+ for Task Achievement if the student failed to include an overview paragraph.
+- Do NOT award Band 7+ for LR if the student uses basic vocabulary (good, big, a lot) with no academic alternatives.
+- Do NOT award Band 7+ for GRA if there are consistent grammatical errors.
+- Be specific about errors: quote the exact sentence, identify the error type, and provide the corrected version.
+- If word count is below 150, this MUST be noted and will cap TA at Band 5.
+
+Respond in this exact JSON format (no markdown, no code fences):
+{
+  "band_ta": 6.5,
+  "band_cc": 6.0,
+  "band_lr": 6.5,
+  "band_gra": 6.0,
+  "band_overall": 6.5,
+  "strengths": ["specific strength 1 with quote", "specific strength 2 with quote"],
+  "errors": [{"quote": "exact text from student", "issue": "error type", "correction": "corrected version"}],
+  "suggestions": ["specific suggestion 1", "suggestion 2", "suggestion 3"]
+}`;
+      const apiKey = APIKey.require();
+      if (!apiKey) {
+        fb.innerHTML = '<div class="feedback warn">Please add your Anthropic API key in the sidebar to use the AI analysis feature.</div>';
+        return;
+      }
+      try {
+        const resp=await fetch("https://api.anthropic.com/v1/messages",{
+          method:"POST",
+          headers:{"Content-Type":"application/json","x-api-key":apiKey,"anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
+          body:JSON.stringify({
+            model:"claude-sonnet-4-20250514",
+            max_tokens:1000,
+            system:systemPrompt,
+            messages:[{role:"user",content:`Word count: ${wc}\n\nStudent's response:\n\n${text}`}]
+          })
+        });
+        const data=await resp.json();
+        const raw=data.content.map(i=>i.text||'').join('').replace(/```json|```/g,'').trim();
+        let r;
+        try{r=JSON.parse(raw);}catch(e){throw new Error("Could not parse AI response.");}
+        const avgBand=((r.band_ta+r.band_cc+r.band_lr+r.band_gra)/4).toFixed(1);
+        const errorsHTML=r.errors&&r.errors.length?r.errors.map(e=>`<li class="issue"><strong>Quote:</strong> "${e.quote}"<br><span style="color:var(--text2)">Issue: ${e.issue}</span><br><span style="color:var(--green-text)">Correction: ${e.correction}</span></li>`).join(''):'<li class="good">No significant errors detected in this analysis.</li>';
+        fb.innerHTML=`
+          <div class="analysis-block" style="margin-top:1rem">
+            <div class="analysis-title">AI Band Score Estimate</div>
+            <div class="rubric-grid" style="margin-top:0.75rem">
+              <div class="rubric-card"><div class="rubric-label">Task Achievement</div><div class="rubric-score" style="color:${r.band_ta>=7?'var(--green)':r.band_ta>=5?'var(--amber)':'var(--red)'}">${r.band_ta}<span class="rubric-max"> / 9</span></div></div>
+              <div class="rubric-card"><div class="rubric-label">Coherence &amp; Cohesion</div><div class="rubric-score" style="color:${r.band_cc>=7?'var(--green)':r.band_cc>=5?'var(--amber)':'var(--red)'}">${r.band_cc}<span class="rubric-max"> / 9</span></div></div>
+              <div class="rubric-card"><div class="rubric-label">Lexical Resource</div><div class="rubric-score" style="color:${r.band_lr>=7?'var(--green)':r.band_lr>=5?'var(--amber)':'var(--red)'}">${r.band_lr}<span class="rubric-max"> / 9</span></div></div>
+              <div class="rubric-card"><div class="rubric-label">Grammatical Accuracy</div><div class="rubric-score" style="color:${r.band_gra>=7?'var(--green)':r.band_gra>=5?'var(--amber)':'var(--red)'}">${r.band_gra}<span class="rubric-max"> / 9</span></div></div>
+            </div>
+            <div style="margin-top:1rem;padding:12px 16px;background:var(--bg2);border-radius:var(--radius);display:flex;align-items:center;gap:12px">
+              <span style="font-size:13px;color:var(--text2)">Estimated overall band:</span>
+              <span style="font-size:28px;font-weight:700;color:${r.band_overall>=7?'var(--green)':r.band_overall>=5?'var(--amber)':'var(--red)'}">${r.band_overall}</span>
+              <span style="font-size:13px;color:var(--text3)">/ 9</span>
+            </div>
+          </div>
+          <div class="analysis-block">
+            <div class="analysis-title">Strengths</div>
+            <ul class="analysis-list" style="margin-top:6px">${r.strengths.map(s=>'<li class="good">'+s+'</li>').join('')}</ul>
+          </div>
+          <div class="analysis-block">
+            <div class="analysis-title">Errors &amp; Issues to Address</div>
+            <ul class="analysis-list" style="margin-top:6px">${errorsHTML}</ul>
+          </div>
+          <div class="analysis-block">
+            <div class="analysis-title">Targeted Improvement Suggestions</div>
+            <ul class="analysis-list" style="margin-top:6px">${r.suggestions.map(s=>'<li class="issue">'+s+'</li>').join('')}</ul>
+          </div>`;
+      } catch(err){
+        fb.innerHTML=`<div class="feedback bad">Analysis failed: ${err.message}. Please check your internet connection and try again.</div>`;
+      }
+    }
+  };
+})();
+W1.loadPrompt(0);
+
+const W2 = (() => {
+  let pidx=0;
+  function renderPrompt(){
+    const p=W2_PROMPTS[pidx];
+    document.getElementById('w2-prompt-box').innerHTML=`
+      <div class="writing-prompt">
+        <div class="prompt-type">${p.type}</div>
+        <div class="prompt-text">${p.text}</div>
+        <div class="prompt-tips" style="margin-top:8px;padding:8px 10px;background:rgba(0,0,0,0.03);border-radius:4px;font-size:12px;line-height:1.7;color:var(--text2)">
+          <strong>Planning tips:</strong><br>${p.tips.replace(/\n/g,'<br>')}
+        </div>
+      </div>`;
+    document.getElementById('w2-feedback').innerHTML='';
+    document.getElementById('w2-input').value='';
+    document.getElementById('w2-wc').textContent='0 words';
+  }
+  return {
+    loadPrompt(i){pidx=parseInt(i); renderPrompt();},
+    countWords(){
+      const t=document.getElementById('w2-input').value.trim();
+      const wc=t?t.split(/\s+/).length:0;
+      const el=document.getElementById('w2-wc');
+      el.textContent=wc+' words';
+      el.style.color=wc>=250?'var(--green-text)':wc>=150?'var(--amber-text)':'var(--red-text)';
+    },
+    clear(){document.getElementById('w2-input').value=''; this.countWords(); document.getElementById('w2-feedback').innerHTML='';},
+    showModel(){
+      const p=W2_PROMPTS[pidx];
+      document.getElementById('w2-feedback').innerHTML=`
+        <div class="analysis-block" style="margin-top:1rem">
+          <div class="analysis-title" style="margin-bottom:8px">Model answer — Band 8 example</div>
+          <div style="font-size:14px;line-height:1.85;white-space:pre-line;color:var(--text)">${p.model}</div>
+        </div>`;
+    },
+    async analyse(){
+      const text=document.getElementById('w2-input').value.trim();
+      const wc=text?text.split(/\s+/).length:0;
+      const fb=document.getElementById('w2-feedback');
+      if(wc<80){fb.innerHTML='<div class="feedback warn">Please write at least 80 words before requesting analysis.</div>'; return;}
+      const p=W2_PROMPTS[pidx];
+      fb.innerHTML=`<div class="loading-row"><div class="spinner"></div><span>Analysing your essay with Claude AI...</span></div>`;
+      const systemPrompt=`You are a senior IELTS examiner with extensive marking experience. Analyse the student's Task 2 essay against the four official IELTS Writing band descriptors.
+
+Essay prompt: ${p.text}
+Essay type: ${p.type}
+
+Your analysis must:
+1. Assign a precise band score (can use .5 increments) to each criterion:
+   - Task Response (TR): Does the essay address all parts of the task? Is a clear position given and sustained? Are ideas developed with relevant evidence?
+   - Coherence & Cohesion (CC): Is the essay logically organised? Are paragraphs clear? Is cohesive language used accurately and not mechanically?
+   - Lexical Resource (LR): Is there a wide range of vocabulary? Is it used accurately and naturally? Are less common words used appropriately?
+   - Grammatical Range & Accuracy (GRA): Is there a range of sentence structures? Are complex structures used accurately? How frequent and significant are grammatical errors?
+
+2. Identify at least 3 SPECIFIC errors with exact quotes from the student's text.
+3. Identify 3 genuine strengths with quotes.
+4. Give 4 targeted improvement suggestions.
+
+STRICT ACCURACY RULES:
+- Do NOT give TR ≥ 7 if the student fails to address all parts of the question (e.g., gives only one view in a "discuss both views" essay).
+- Do NOT give LR ≥ 7 if vocabulary is mostly simple and lacks range.
+- Do NOT give GRA ≥ 7 if there are consistent grammar errors (subject-verb agreement, tense errors, article errors, preposition errors).
+- Do NOT give CC ≥ 7 if the essay lacks clear paragraph structure or cohesive devices are used mechanically.
+- Be strict, specific, and honest. False positives harm the student's preparation.
+- If word count is below 250, note this clearly as it will affect TR.
+
+Respond in this exact JSON format (no markdown, no code fences):
+{
+  "band_tr": 6.5,
+  "band_cc": 6.0,
+  "band_lr": 6.5,
+  "band_gra": 6.0,
+  "band_overall": 6.5,
+  "strengths": ["strength 1 with quote", "strength 2", "strength 3"],
+  "errors": [{"quote": "exact quote", "issue": "error description", "correction": "corrected version"}],
+  "suggestions": ["suggestion 1", "suggestion 2", "suggestion 3", "suggestion 4"]
+}`;
+      const apiKey = APIKey.require();
+      if (!apiKey) {
+        fb.innerHTML = '<div class="feedback warn">Please add your Anthropic API key in the sidebar to use the AI analysis feature.</div>';
+        return;
+      }
+      try {
+        const resp=await fetch("https://api.anthropic.com/v1/messages",{
+          method:"POST",
+          headers:{"Content-Type":"application/json","x-api-key":apiKey,"anthropic-version":"2023-06-01","anthropic-dangerous-direct-browser-access":"true"},
+          body:JSON.stringify({
+            model:"claude-sonnet-4-20250514",
+            max_tokens:1000,
+            system:systemPrompt,
+            messages:[{role:"user",content:`Word count: ${wc}\n\nStudent's essay:\n\n${text}`}]
+          })
+        });
+        const data=await resp.json();
+        const raw=data.content.map(i=>i.text||'').join('').replace(/```json|```/g,'').trim();
+        let r;
+        try{r=JSON.parse(raw);}catch(e){throw new Error("Could not parse AI response.");}
+        const errorsHTML=r.errors&&r.errors.length?r.errors.map(e=>`<li class="issue"><strong>Quote:</strong> "${e.quote}"<br><span style="color:var(--text2)">Issue: ${e.issue}</span><br><span style="color:var(--green-text)">Correction: ${e.correction}</span></li>`).join(''):'<li class="good">No critical errors detected.</li>';
+        fb.innerHTML=`
+          <div class="analysis-block" style="margin-top:1rem">
+            <div class="analysis-title">AI Band Score Estimate</div>
+            <div class="rubric-grid" style="margin-top:0.75rem">
+              <div class="rubric-card"><div class="rubric-label">Task Response</div><div class="rubric-score" style="color:${r.band_tr>=7?'var(--green)':r.band_tr>=5?'var(--amber)':'var(--red)'}">${r.band_tr}<span class="rubric-max"> / 9</span></div></div>
+              <div class="rubric-card"><div class="rubric-label">Coherence &amp; Cohesion</div><div class="rubric-score" style="color:${r.band_cc>=7?'var(--green)':r.band_cc>=5?'var(--amber)':'var(--red)'}">${r.band_cc}<span class="rubric-max"> / 9</span></div></div>
+              <div class="rubric-card"><div class="rubric-label">Lexical Resource</div><div class="rubric-score" style="color:${r.band_lr>=7?'var(--green)':r.band_lr>=5?'var(--amber)':'var(--red)'}">${r.band_lr}<span class="rubric-max"> / 9</span></div></div>
+              <div class="rubric-card"><div class="rubric-label">Grammatical Accuracy</div><div class="rubric-score" style="color:${r.band_gra>=7?'var(--green)':r.band_gra>=5?'var(--amber)':'var(--red)'}">${r.band_gra}<span class="rubric-max"> / 9</span></div></div>
+            </div>
+            <div style="margin-top:1rem;padding:12px 16px;background:var(--bg2);border-radius:var(--radius);display:flex;align-items:center;gap:12px">
+              <span style="font-size:13px;color:var(--text2)">Estimated overall band:</span>
+              <span style="font-size:28px;font-weight:700;color:${r.band_overall>=7?'var(--green)':r.band_overall>=5?'var(--amber)':'var(--red)'}">${r.band_overall}</span>
+              <span style="font-size:13px;color:var(--text3)">/ 9</span>
+            </div>
+          </div>
+          <div class="analysis-block">
+            <div class="analysis-title">Strengths</div>
+            <ul class="analysis-list" style="margin-top:6px">${r.strengths.map(s=>'<li class="good">'+s+'</li>').join('')}</ul>
+          </div>
+          <div class="analysis-block">
+            <div class="analysis-title">Errors &amp; Issues (with corrections)</div>
+            <ul class="analysis-list" style="margin-top:6px">${errorsHTML}</ul>
+          </div>
+          <div class="analysis-block">
+            <div class="analysis-title">Targeted Improvement Suggestions</div>
+            <ul class="analysis-list" style="margin-top:6px">${r.suggestions.map(s=>'<li class="issue">'+s+'</li>').join('')}</ul>
+          </div>`;
+      } catch(err){
+        fb.innerHTML=`<div class="feedback bad">Analysis failed: ${err.message}. Please check your internet connection and try again.</div>`;
+      }
+    }
+  };
+})();
+W2.loadPrompt(0);
+
+</script>
+</body>
+</html>
